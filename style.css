@@ -1,37 +1,51 @@
-/* --- 1. BRAND COLORS & SETTINGS --- */
+/* --- 1. BRAND VARIABLES --- */
 :root {
     --bms-pink: #F84464;
-    --bms-dark-blue: #333545;   /* Bar 1 */
-    --bms-navy: #1F2533;        /* Bar 2 */
+    --bms-dark-blue: #333545;   /* Main Nav */
+    --bms-navy: #1F2533;        /* Category Nav */
     --bms-bg: #F5F5F5;
     --bms-white: #FFFFFF;
+    --shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
-body { background-color: var(--bms-bg); color: #333; overflow-x: hidden; }
-a { text-decoration: none; color: inherit; transition: 0.2s; }
+/* --- 2. RESET & BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
 
-/* --- 2. TRIPLE NAVIGATION SYSTEM --- */
+body {
+    background-color: var(--bms-bg);
+    color: #222;
+    overflow-x: hidden;
+}
 
-/* Bar 1: Main Branding & Search */
+a { text-decoration: none; color: inherit; }
+
+/* --- 3. THE TRIPLE NAV STACK --- */
+
+/* Bar 1: Branding & Search */
 .nav-main {
     background-color: var(--bms-dark-blue);
-    padding: 12px 60px;
+    padding: 10px 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 1000;
 }
 
-.search-container {
+.search-box {
     background: white;
-    width: 550px;
+    width: 50%;
     display: flex;
     align-items: center;
-    padding: 6px 12px;
+    padding: 8px 15px;
     border-radius: 4px;
 }
 
-.search-container input {
+.search-box input {
     border: none;
     outline: none;
     width: 100%;
@@ -39,71 +53,61 @@ a { text-decoration: none; color: inherit; transition: 0.2s; }
     font-size: 14px;
 }
 
-/* Bar 2: Categories (The one you need everywhere) */
+/* Bar 2: Categories */
 .nav-categories {
     background-color: var(--bms-navy);
     padding: 0 60px;
-    height: 40px;
+    height: 42px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #cccccc;
-    font-size: 14px;
 }
 
-.nav-links { display: flex; gap: 25px; height: 100%; align-items: center; }
+.nav-links {
+    display: flex;
+    gap: 25px;
+    height: 100%;
+}
 
-.nav-links a { height: 100%; display: flex; align-items: center; padding-top: 4px; }
+.nav-links a {
+    color: #ccc;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    transition: 0.2s;
+}
 
 .nav-links a:hover { color: white; }
 
-/* Active Page Indicator */
 .nav-links a.active {
     color: white;
-    font-weight: bold;
-    border-bottom: 3px solid var(--bms-pink);
+    font-weight: 500;
 }
 
-/* Bar 3: Icon Strip (Sports/Activities specific) */
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--bms-pink);
+}
+
+/* Bar 3: Sports/Activities Specific Strip */
 .icon-strip {
     background: white;
-    padding: 20px 0;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 45px;
     border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
 }
 
-.sport-icon-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    color: #666;
-}
-
-.sport-icon-box:hover { color: var(--bms-pink); }
-
-.icon-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #f8f8f8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    margin-bottom: 5px;
-    border: 1px solid transparent;
-}
-
-.sport-icon-box:hover .icon-circle {
-    background: #fff0f2;
-    border-color: #ffd6dc;
-}
-
-/* --- 3. LAYOUT & CARDS --- */
-.main-wrapper {
+/* --- 4. GRID & CARD STYLES --- */
+.container {
     max-width: 1240px;
     margin: 30px auto;
     display: flex;
@@ -111,72 +115,76 @@ a { text-decoration: none; color: inherit; transition: 0.2s; }
     gap: 30px;
 }
 
-.sidebar { width: 280px; position: sticky; top: 20px; height: fit-content; }
+.sidebar { width: 280px; }
 
-.filter-card {
+.content-area { flex: 1; }
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+/* Card Design */
+.card {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover { transform: translateY(-8px); }
+
+.poster-box {
+    width: 100%;
+    aspect-ratio: 2/3;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.poster-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Rating Badge Overlay */
+.rating-badge {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 6px 10px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    backdrop-filter: blur(5px);
+}
+
+.card-info { padding: 12px 0; }
+.card-info h3 { font-size: 18px; font-weight: bold; margin-bottom: 4px; }
+.card-info p { color: #666; font-size: 14px; }
+
+/* --- 5. FILTERS --- */
+.filter-group {
     background: white;
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 15px;
-    border: 1px solid #eee;
+    border: 1px solid #e5e5e5;
 }
 
 .chip {
+    display: inline-block;
     border: 1px solid #ddd;
     color: var(--bms-pink);
-    padding: 5px 12px;
-    border-radius: 4px;
+    padding: 4px 10px;
     font-size: 12px;
-    margin: 4px;
-    display: inline-block;
+    border-radius: 3px;
+    margin: 3px;
     cursor: pointer;
-    background: white;
 }
 
-.chip.active, .chip:hover {
-    background: var(--bms-pink);
-    color: white;
-    border-color: var(--bms-pink);
-}
-
-.movie-grid {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 25px;
-}
-
-.card {
-    background: transparent;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.card:hover { transform: translateY(-5px); }
-
-.poster {
-    width: 100%;
-    aspect-ratio: 2/3;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.event-poster {
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.card-title { font-weight: bold; margin-top: 10px; font-size: 16px; }
-.card-sub { color: #666; font-size: 13px; }
-
-/* Footer */
-footer {
-    background: #333545;
-    color: #999;
-    padding: 60px;
-    text-align: center;
-    margin-top: 50px;
-}
+.chip.active { background: var(--bms-pink); color: white; border-color: var(--bms-pink); }
