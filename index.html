@@ -51,7 +51,25 @@
 </head>
 <body>
 
-<header class="sticky top-0 z-50 shadow-lg">
+    <nav class="nav-container px-4 lg:px-16 py-3 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-8 flex-1">
+            <h1 class="text-2xl md:text-3xl font-bold italic tracking-tighter cursor-pointer text-white">
+                book<span class="text-[#F84464]">my</span>show
+            </h1>
+            <div class="relative hidden md:block">
+                <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input type="text" class="search-input" placeholder="Search for Movies, Events, Plays, Sports and Activities">
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 md:gap-6 text-white text-sm">
+            <div class="cursor-pointer hover:text-gray-300 hidden sm:block">Mumbai <i class="fas fa-chevron-down text-[10px] ml-1"></i></div>
+            <button class="bg-[#F84464] text-white text-xs px-4 py-1.5 rounded-md font-medium">Sign in</button>
+            <i class="fas fa-bars text-xl cursor-pointer"></i>
+        </div>
+    </nav>
+
+    <header class="sticky top-0 z-50 shadow-lg">
     <nav class="bg-[#333545] px-4 lg:px-16 py-3 flex items-center justify-between">
         <div class="flex items-center gap-8 flex-1">
             <h1 class="text-2xl font-bold italic text-white">book<span class="text-[#F84464]">my</span>show</h1>
@@ -85,28 +103,6 @@
         </div>
     </div>
 </header>
-
-    <div class="bg-[#2B3148] text-gray-300 px-4 lg:px-16 py-2.5 sticky top-[64px] z-40 shadow-md">
-    <div class="max-w-[1240px] mx-auto flex items-center justify-between">
-        
-        <div class="flex gap-6 md:gap-8 text-sm overflow-x-auto whitespace-nowrap scrollbar-hide">
-            <a href="index.html" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#F84464]">Movies</a>
-            <a href="stream.html" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#F84464]">Stream</a>
-            <a href="events.html" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#F84464]">Events</a>
-            <a href="plays.html" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#F84464]">Plays</a>
-            <a href="sports.html" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#F84464]">Sports</a>
-            <a href="activities.html" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#F84464]">Activities</a>
-        </div>
-
-        <div class="hidden lg:flex gap-5 text-[11px] font-medium whitespace-nowrap">
-            <a href="#" class="hover:text-white transition">ListYourShow</a>
-            <a href="#" class="hover:text-white transition">Corporates</a>
-            <a href="#" class="hover:text-white transition">Offers</a>
-            <a href="#" class="hover:text-white transition">Gift Cards</a>
-        </div>
-
-    </div>
-</div>
 
     <section class="w-full bg-[#EBEBEB] py-4">
         <div class="max-w-[1240px] mx-auto px-4">
