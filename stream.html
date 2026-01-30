@@ -3,130 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports Events in Mumbai | BookMyShow Clone</title>
-    
+    <title>Stream - Watch Movies Online | BookMyShow Clone</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
-        /* Essential CSS to ensure the bars are always visible */
-        :root {
-            --bms-pink: #F84464;
-            --bms-dark-blue: #333545;
-            --bms-navy: #1F2533;
-        }
-        body { background-color: #F5F5F5; font-family: 'Roboto', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        body { font-family: 'Roboto', sans-serif; background-color: #121212; color: white; }
+        .nav-container { background-color: #333545; }
         
-        /* Custom Scrollbar for the Icon Strip */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Stream Card Styles */
+        .stream-card { @apply bg-[#1f1f1f] rounded-lg overflow-hidden transition-all duration-300 hover:ring-2 hover:ring-[#F84464] cursor-pointer; }
+        .stream-poster { @apply relative; aspect-ratio: 2/3; }
+        .stream-poster img { @apply w-full h-full object-cover; }
+        
+        .premium-tag { @apply absolute top-0 left-0 bg-[#F84464] text-white text-[10px] font-bold px-3 py-1 rounded-br-lg uppercase; }
+        .resolution-tag { @apply absolute bottom-2 right-2 bg-black/60 text-white text-[9px] px-1.5 py-0.5 rounded border border-gray-500; }
+        
+        .play-overlay { @apply absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300; }
+        .play-icon { @apply bg-white/20 backdrop-blur-md p-4 rounded-full border border-white/30; }
 
-        .nav-links a.active {
-            color: white;
-            border-bottom: 3px solid var(--bms-pink);
-            padding-bottom: 9px;
-        }
+        /* Custom Scrollbar for Horizontal Row */
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body>
 
-    <nav class="bg-[#333545] px-4 lg:px-16 py-3 flex items-center justify-between sticky top-0 z-50">
-        <div class="flex items-center gap-8 w-full max-w-4xl">
-            <a href="index.html">
-                <h1 class="text-3xl font-bold italic tracking-tighter text-white">
-                    book<span class="text-[#F84464]">my</span>show
-                </h1>
-            </a>
-            <div class="relative w-full max-w-md hidden md:block">
+    <nav class="nav-container px-4 lg:px-16 py-3 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-8 flex-1">
+            <h1 class="text-2xl font-bold italic text-white">book<span class="text-[#F84464]">my</span>show</h1>
+            <div class="relative hidden md:block flex-1 max-w-xl">
                 <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                <input type="text" class="w-full pl-10 pr-4 py-2 rounded text-sm outline-none" placeholder="Search for Cricket, Football, Marathons...">
+                <input type="text" class="w-full py-2 pl-10 rounded text-sm bg-white text-black outline-none" placeholder="Search for Movies to Stream">
             </div>
         </div>
-        <div class="flex items-center gap-6 text-white text-sm">
-            <span class="cursor-pointer">Mumbai <i class="fas fa-chevron-down text-[10px] ml-1"></i></span>
-            <button class="bg-[#F84464] px-4 py-1.5 rounded font-bold text-xs">Sign in</button>
+        <div class="flex items-center gap-6 text-white text-sm ml-4">
+            <button class="bg-[#F84464] px-4 py-1.5 rounded text-xs font-medium">Sign in</button>
+            <i class="fas fa-bars text-xl"></i>
         </div>
     </nav>
 
-    <div class="bg-[#1F2533] text-gray-300 px-4 lg:px-16 py-2 flex justify-between items-center text-sm sticky top-[60px] z-40">
-        <div class="nav-links flex gap-8">
-            <a href="index.html" class="hover:text-white transition">Movies</a>
-            <a href="stream.html" class="hover:text-white transition">Stream</a>
-            <a href="events.html" class="hover:text-white transition">Events</a>
-            <a href="plays.html" class="hover:text-white transition">Plays</a>
-            <a href="sports.html" class="active">Sports</a>
-            <a href="activities.html" class="hover:text-white transition">Activities</a>
-        </div>
-        <div class="hidden lg:flex gap-4 text-[11px]">
-            <a href="#" class="hover:text-white">Offers</a>
-            <a href="#" class="hover:text-white">Gift Cards</a>
-        </div>
+    <div class="bg-[#2B3148] text-gray-300 px-4 lg:px-16 py-2.5 flex gap-8 text-sm border-b border-gray-700">
+        <a href="index.html" class="hover:text-white transition">Movies</a>
+        <a href="events.html" class="hover:text-white transition">Events</a>
+        <a href="plays.html" class="hover:text-white transition">Plays</a>
+        <a href="#" class="text-white font-medium border-b-2 border-[#F84464] pb-1">Stream</a>
+        <a href="#" class="hover:text-white transition">Activities</a>
     </div>
 
-    <div class="bg-white border-b border-gray-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-center gap-10 overflow-x-auto no-scrollbar">
-            <div class="flex flex-col items-center cursor-pointer text-[#F84464] min-w-[80px]">
-                <div class="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center mb-1 border border-pink-100">
-                    <i class="fas fa-cricket-bat-ball text-xl"></i>
+    <section class="w-full px-4 lg:px-16 py-8">
+        <div class="max-w-[1240px] mx-auto rounded-2xl overflow-hidden h-[300px] md:h-[400px] relative bg-gradient-to-r from-black to-transparent">
+            <img src="https://placehold.co/1240x400/1e1e1e/ffffff?text=New+Releases+To+Rent" class="absolute inset-0 w-full h-full object-cover -z-10 opacity-60">
+            <div class="p-8 md:p-16 flex flex-col justify-center h-full max-w-xl">
+                <span class="text-[#F84464] font-bold text-sm tracking-widest uppercase mb-2">Premiere of the week</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Deadpool & Wolverine</h2>
+                <p class="text-gray-300 mb-6 line-clamp-2">The ultimate team-up of the year is now available to rent or buy in 4K UHD. Experience the chaos from your couch.</p>
+                <div class="flex gap-4">
+                    <button class="bg-[#F84464] px-8 py-3 rounded-lg font-bold hover:bg-[#d63a56]">Rent ₹149</button>
+                    <button class="bg-white/10 backdrop-blur-md px-8 py-3 rounded-lg font-bold hover:bg-white/20">Buy ₹499</button>
                 </div>
-                <span class="text-[10px] font-bold uppercase">Cricket</span>
-            </div>
-            <div class="flex flex-col items-center cursor-pointer text-gray-500 hover:text-[#F84464] min-w-[80px]">
-                <div class="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-1">
-                    <i class="fas fa-futbol text-xl"></i>
-                </div>
-                <span class="text-[10px] font-bold uppercase">Football</span>
-            </div>
-            <div class="flex flex-col items-center cursor-pointer text-gray-500 hover:text-[#F84464] min-w-[80px]">
-                <div class="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-1">
-                    <i class="fas fa-running text-xl"></i>
-                </div>
-                <span class="text-[10px] font-bold uppercase">Running</span>
             </div>
         </div>
-    </div>
+    </section>
 
-    <main class="max-w-[1240px] mx-auto flex px-6 py-10 gap-8">
-        <aside class="w-1/4 hidden lg:block sticky top-[120px] h-fit">
-            <h2 class="text-2xl font-bold mb-6 text-gray-800">Filters</h2>
-            <div class="bg-white p-5 rounded-lg border border-gray-200 mb-4">
-                <p class="font-bold text-sm mb-4">Price</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="border border-[#F84464] text-[#F84464] px-3 py-1 text-xs rounded-md bg-white cursor-pointer">0 - 500</span>
-                    <span class="border border-gray-300 px-3 py-1 text-xs rounded-md hover:border-[#F84464] cursor-pointer">Above 2000</span>
+    <main class="max-w-[1240px] mx-auto py-6 px-4">
+        
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-bold">New Releases</h3>
+            <span class="text-[#F84464] text-sm cursor-pointer">View All ></span>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-12">
+            
+            <div class="stream-card">
+                <div class="stream-poster">
+                    <img src="https://placehold.co/400x600/0f172a/ffffff?text=Joker" alt="Stream">
+                    <div class="premium-tag">PREMIERE</div>
+                    <div class="resolution-tag">4K</div>
+                    <div class="play-overlay">
+                        <div class="play-icon"><i class="fas fa-play text-white"></i></div>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <h4 class="font-bold text-sm truncate">Joker: Folie à Deux</h4>
+                    <p class="text-gray-500 text-[10px] mt-1 uppercase">English • Drama/Thriller</p>
                 </div>
             </div>
-        </aside>
 
-        <section class="flex-1">
-            <h2 class="text-2xl font-bold mb-8">Sports in Mumbai</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer group">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=600&q=80" alt="Cricket" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute top-2 left-2 bg-black/60 text-white text-[10px] px-2 py-1 rounded">Fast Filling</div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg text-gray-800">T20 International: IND vs AUS</h3>
-                        <p class="text-gray-500 text-sm">Wankhede Stadium: Mumbai</p>
-                        <p class="text-[#F84464] font-bold text-xs mt-4 uppercase">Cricket | ₹2500 onwards</p>
+            <div class="stream-card">
+                <div class="stream-poster">
+                    <img src="https://placehold.co/400x600/312e81/ffffff?text=Inside+Out+2" alt="Stream">
+                    <div class="resolution-tag">HD</div>
+                    <div class="play-overlay">
+                        <div class="play-icon"><i class="fas fa-play text-white"></i></div>
                     </div>
                 </div>
-
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer group">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&q=80" alt="Football" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg text-gray-800">ISL: Mumbai City FC vs Goa</h3>
-                        <p class="text-gray-500 text-sm">Mumbai Football Arena</p>
-                        <p class="text-[#F84464] font-bold text-xs mt-4 uppercase">Football | ₹499 onwards</p>
-                    </div>
+                <div class="p-3">
+                    <h4 class="font-bold text-sm truncate">Inside Out 2</h4>
+                    <p class="text-gray-500 text-[10px] mt-1 uppercase">English • Animation/Kids</p>
                 </div>
-
             </div>
-        </section>
+
+            <div class="stream-card">
+                <div class="stream-poster">
+                    <img src="https://placehold.co/400x600/1e293b/ffffff?text=The+Batman" alt="Stream">
+                    <div class="resolution-tag">4K</div>
+                    <div class="play-overlay">
+                        <div class="play-icon"><i class="fas fa-play text-white"></i></div>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <h4 class="font-bold text-sm truncate">The Batman</h4>
+                    <p class="text-gray-500 text-[10px] mt-1 uppercase">English • Action/Crime</p>
+                </div>
+            </div>
+
+            <div class="stream-card">
+                <div class="stream-poster">
+                    <img src="https://placehold.co/400x600/3f1a1a/ffffff?text=Stree+2" alt="Stream">
+                    <div class="premium-tag">RENTAL</div>
+                    <div class="resolution-tag">HD</div>
+                    <div class="play-overlay">
+                        <div class="play-icon"><i class="fas fa-play text-white"></i></div>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <h4 class="font-bold text-sm truncate">Stree 2</h4>
+                    <p class="text-gray-500 text-[10px] mt-1 uppercase">Hindi • Comedy/Horror</p>
+                </div>
+            </div>
+
+            <div class="stream-card">
+                <div class="stream-poster">
+                    <img src="https://placehold.co/400x600/1a2e05/ffffff?text=Oppenheimer" alt="Stream">
+                    <div class="resolution-tag">4K</div>
+                    <div class="play-overlay">
+                        <div class="play-icon"><i class="fas fa-play text-white"></i></div>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <h4 class="font-bold text-sm truncate">Oppenheimer</h4>
+                    <p class="text-gray-500 text-[10px] mt-1 uppercase">English • Biography/Drama</p>
+                </div>
+            </div>
+
+        </div>
     </main>
 
 </body>

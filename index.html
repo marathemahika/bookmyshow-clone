@@ -3,122 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Tickets, Plays, Sports, Events & Carnival | BookMyShow Clone</title>
+    <title>Movie Tickets, Plays, Sports, Events & Carnival | BookMyShow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        
+        body { font-family: 'Roboto', sans-serif; background-color: #f5f5f5; }
+        
+        .nav-container { background-color: #333545; }
+        
+        .search-input {
+            width: 550px;
+            padding: 6px 10px 6px 40px;
+            border-radius: 4px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .filter-chip {
+            @apply border border-gray-300 text-[#F84464] px-3 py-1 rounded text-sm cursor-pointer hover:bg-red-50 transition-colors bg-white;
+        }
+        
+        .filter-chip.active {
+            @apply bg-[#F84464] text-white border-[#F84464];
+        }
+
+        .movie-card {
+            @apply transition-transform duration-300 ease-in-out hover:-translate-y-2 cursor-pointer;
+        }
+
+        .poster-wrapper {
+            @apply relative rounded-lg overflow-hidden shadow-md;
+            aspect-ratio: 2/3;
+        }
+
+        .poster-wrapper img {
+            @apply w-full h-full object-cover transition-transform duration-500 hover:scale-105;
+        }
+
+        .rating-overlay {
+            @apply absolute bottom-0 w-full bg-black/80 text-white p-2 flex items-center gap-2 text-xs font-bold;
+        }
+
+        footer { background-color: #313034; color: #999; @apply py-10 px-16 text-center; }
+    </style>
 </head>
 <body>
 
-    <nav class="nav-main">
-        <div style="display: flex; align-items: center; gap: 30px; width: 80%;">
-            <h1 style="color:white; font-style:italic; font-size: 28px; cursor: pointer;">
-                book<span style="color:#F84464">my</span>show
+    <nav class="nav-container px-4 lg:px-16 py-3 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-8 flex-1">
+            <h1 class="text-2xl md:text-3xl font-bold italic tracking-tighter cursor-pointer text-white">
+                book<span class="text-[#F84464]">my</span>show
             </h1>
-            <div class="search-box">
-                <i class="fas fa-search" style="color:#999"></i>
-                <input type="text" placeholder="Search for Movies, Events, Plays, Sports and Activities">
+            <div class="relative hidden md:block">
+                <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input type="text" class="search-input" placeholder="Search for Movies, Events, Plays, Sports and Activities">
             </div>
         </div>
-        <div style="color:white; font-size: 14px; display: flex; align-items: center; gap: 20px;">
-            <span style="cursor:pointer">Mumbai <i class="fas fa-chevron-down" style="font-size: 10px;"></i></span>
-            <button style="background:#F84464; color:white; border:none; padding:7px 16px; border-radius:4px; font-weight:bold; cursor:pointer;">Sign in</button>
+
+        <div class="flex items-center gap-4 md:gap-6 text-white text-sm">
+            <div class="cursor-pointer hover:text-gray-300 hidden sm:block">Mumbai <i class="fas fa-chevron-down text-[10px] ml-1"></i></div>
+            <button class="bg-[#F84464] text-white text-xs px-4 py-1.5 rounded-md font-medium">Sign in</button>
+            <i class="fas fa-bars text-xl cursor-pointer"></i>
         </div>
     </nav>
 
-    <div class="nav-categories">
-        <div class="nav-links">
-            <a href="index.html" class="active">Movies</a>
-            <a href="stream.html">Stream</a>
-            <a href="events.html">Events</a>
-            <a href="plays.html">Plays</a>
-            <a href="sports.html">Sports</a>
-            <a href="activities.html">Activities</a>
+    <div class="bg-[#2B3148] text-gray-300 px-4 lg:px-16 py-2.5 flex justify-between items-center text-xs md:text-sm">
+        <div class="flex gap-4 md:gap-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
+            <a href="#" class="text-white font-medium border-b-2 border-[#F84464] pb-1">Movies</a>
+            <a href="#" class="hover:text-white transition">Stream</a>
+            <a href="#" class="hover:text-white transition">Events</a>
+            <a href="#" class="hover:text-white transition">Plays</a>
+            <a href="#" class="hover:text-white transition">Sports</a>
+            <a href="#" class="hover:text-white transition">Activities</a>
+        </div>
+        <div class="hidden lg:flex gap-4 text-[11px]">
+            <a href="#" class="hover:text-white">ListYourShow</a>
+            <a href="#" class="hover:text-white">Corporates</a>
+            <a href="#" class="hover:text-white">Offers</a>
+            <a href="#" class="hover:text-white">Gift Cards</a>
         </div>
     </div>
 
-    <section style="background-color: #EBEBEB; padding: 15px 0;">
-        <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
-            <div style="width: 100%; height: 300px; border-radius: 8px; overflow: hidden; position: relative; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-                <img src="https://image.tmdb.org/t/p/original/mDeS9ICpAdq56zV9uH6YyCc39FJ.jpg" alt="Featured Movie" style="width: 100%; height: 100%; object-fit: cover;">
-                
-                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 40px 30px; color: white;">
-                    <span style="background: #F84464; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">FEATURED</span>
-                    <h2 style="font-size: 32px; margin-top: 10px;">Spider-Man: Across the Spider-Verse</h2>
-                    <p style="font-size: 14px; opacity: 0.8;">Action, Adventure, Animation | English, Hindi, Tamil, Telugu</p>
+    <section class="w-full bg-[#EBEBEB] py-4">
+        <div class="max-w-[1240px] mx-auto px-4">
+            <div class="rounded-xl overflow-hidden shadow-2xl h-[200px] md:h-[350px] relative group bg-gray-900">
+                <img src="https://placehold.co/1240x350/1a1a1a/ffffff?text=Epic+Cinema+Experience+Starts+Here" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
+                <div class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/60 p-3 rounded-full cursor-pointer transition">
+                    <i class="fas fa-chevron-left text-white"></i>
                 </div>
-
-                <div style="position: absolute; top: 50%; left: 10px; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;"><i class="fas fa-chevron-left"></i></div>
-                <div style="position: absolute; top: 50%; right: 10px; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;"><i class="fas fa-chevron-right"></i></div>
+                <div class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/60 p-3 rounded-full cursor-pointer transition">
+                    <i class="fas fa-chevron-right text-white"></i>
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="container">
+    <main class="max-w-[1240px] mx-auto flex flex-col lg:flex-row gap-8 py-10 px-4">
         
-        <aside class="sidebar">
-            <h2 style="font-size: 24px; margin-bottom: 20px;">Filters</h2>
-            <div class="filter-group">
-                <p style="font-weight:bold; font-size:14px; margin-bottom:10px;">Languages</p>
-                <div class="chip active">English</div>
-                <div class="chip">Hindi</div>
+        <aside class="w-full lg:w-1/4 hidden lg:block">
+            <h2 class="text-xl font-bold mb-6">Filters</h2>
+            
+            <div class="bg-white rounded-md mb-4 overflow-hidden border border-gray-200">
+                <div class="flex justify-between p-4 cursor-pointer text-sm font-medium">
+                    <span class="text-[#F84464]"><i class="fas fa-chevron-up mr-2 text-xs text-gray-400"></i> Languages</span>
+                    <span class="text-xs text-gray-400">Clear</span>
+                </div>
+                <div class="px-4 pb-4 flex flex-wrap gap-2">
+                    <span class="filter-chip active">English</span>
+                    <span class="filter-chip">Hindi</span>
+                    <span class="filter-chip">Marathi</span>
+                    <span class="filter-chip">Telugu</span>
+                </div>
             </div>
-            <div class="filter-group">
-                <p style="font-weight:bold; font-size:14px; margin-bottom:10px;">Genres</p>
-                <div class="chip">Action</div>
-                <div class="chip">Drama</div>
+
+            <div class="bg-white rounded-md mb-4 overflow-hidden border border-gray-200">
+                <div class="flex justify-between p-4 cursor-pointer text-sm font-medium">
+                    <span><i class="fas fa-chevron-up mr-2 text-xs text-gray-400"></i> Genres</span>
+                </div>
+                <div class="px-4 pb-4 flex flex-wrap gap-2">
+                    <span class="filter-chip">Action</span>
+                    <span class="filter-chip">Drama</span>
+                    <span class="filter-chip">Comedy</span>
+                    <span class="filter-chip">Sci-Fi</span>
+                </div>
             </div>
+            
+            <button class="w-full py-2 border border-[#F84464] text-[#F84464] rounded-md font-medium hover:bg-[#F84464] hover:text-white transition">Browse by Venues</button>
         </aside>
 
-        <main class="content-area">
-            <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 25px;">Recommended Movies</h2>
-
-            <div class="movie-grid">
-                
-                <div class="card">
-                    <div class="poster-box">
-                        <img src="https://image.tmdb.org/t/p/w500/6EiRUJTLqh729QvYpT3Y0G3Ucz6.jpg" alt="Avatar">
-                        <div class="rating-badge">
-                            <i class="fas fa-star" style="color:#F84464"></i> 8.8/10 <span>240.5K Votes</span>
-                        </div>
-                    </div>
-                    <div class="card-info">
-                        <h3>Avatar: The Way of Water</h3>
-                        <p>UA | English, Hindi</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="poster-box">
-                        <img src="https://image.tmdb.org/t/p/w500/8Gxv2mYqlLqzqS7S8Z2S0Yv2hU5.jpg" alt="Oppenheimer">
-                        <div class="rating-badge">
-                            <i class="fas fa-star" style="color:#F84464"></i> 9.1/10 <span>180K Votes</span>
-                        </div>
-                    </div>
-                    <div class="card-info">
-                        <h3>Oppenheimer</h3>
-                        <p>UA | English, Hindi</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="poster-box">
-                        <img src="https://image.tmdb.org/t/p/w500/czembS0RhiERbt6n9S8QI3nC39P.jpg" alt="Dune 2">
-                        <div class="rating-badge">
-                            <i class="fas fa-thumbs-up" style="color:#4caf50"></i> 94% <span>New Release</span>
-                        </div>
-                    </div>
-                    <div class="card-info">
-                        <h3>Dune: Part Two</h3>
-                        <p>UA | English, Hindi</p>
-                    </div>
-                </div>
-
+        <section class="flex-1">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Movies in Mumbai</h2>
+                <a href="#" class="text-[#F84464] font-medium text-sm hover:underline">See All <i class="fas fa-chevron-right text-[10px]"></i></a>
             </div>
-        </main>
-    </div>
 
-    <footer style="background: #333545; color: #999; padding: 40px; text-align: center; margin-top: 50px;">
-        <p>© 2026 Bigtree Entertainment Pvt. Ltd. All Rights Reserved.</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div class="movie-card">
+                    <div class="poster-wrapper">
+                        <img src="https://placehold.co/400x600/0f172a/ffffff?text=Avatar+III" alt="Movie">
+                        <div class="rating-overlay">
+                            <i class="fas fa-thumbs-up text-green-500"></i> 120.5K Likes
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h3 class="font-bold text-base truncate">Avatar: Fire and Ash</h3>
+                        <p class="text-gray-500 text-sm">UA | English/Hindi</p>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="poster-wrapper">
+                        <img src="https://placehold.co/400x600/450a0a/ffffff?text=Border+2" alt="Movie">
+                        <div class="rating-overlay">
+                            <i class="fas fa-star text-[#F84464]"></i> 8.9/10
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h3 class="font-bold text-base truncate">Border 2</h3>
+                        <p class="text-gray-500 text-sm">U | Hindi</p>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="poster-wrapper">
+                        <img src="https://placehold.co/400x600/1e1b4b/ffffff?text=Inception" alt="Movie">
+                        <div class="rating-overlay">
+                            <i class="fas fa-star text-[#F84464]"></i> 9.1/10
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h3 class="font-bold text-base truncate">Inception Re-release</h3>
+                        <p class="text-gray-500 text-sm">UA | English</p>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="poster-wrapper">
+                        <img src="https://placehold.co/400x600/064e3b/ffffff?text=Mufasa" alt="Movie">
+                        <div class="rating-overlay">
+                            <i class="fas fa-thumbs-up text-green-500"></i> 45K Likes
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h3 class="font-bold text-base truncate">Mufasa: The Lion King</h3>
+                        <p class="text-gray-500 text-sm">U | English/Hindi</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="max-w-[1240px] mx-auto">
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 mb-12 border-b border-gray-600 pb-8">
+                <div class="flex flex-col items-center group cursor-pointer">
+                    <div class="bg-gray-700 p-4 rounded-full mb-3 group-hover:bg-[#F84464] transition">
+                        <i class="fas fa-headset text-2xl text-white"></i>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest">24/7 Customer Care</span>
+                </div>
+                <div class="flex flex-col items-center group cursor-pointer">
+                    <div class="bg-gray-700 p-4 rounded-full mb-3 group-hover:bg-[#F84464] transition">
+                        <i class="fas fa-ticket-alt text-2xl text-white"></i>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest">Resend Booking</span>
+                </div>
+                <div class="flex flex-col items-center group cursor-pointer">
+                    <div class="bg-gray-700 p-4 rounded-full mb-3 group-hover:bg-[#F84464] transition">
+                        <i class="fas fa-envelope-open-text text-2xl text-white"></i>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest">Newsletter</span>
+                </div>
+            </div>
+            
+            <div class="flex justify-center gap-6 mb-8 text-xl">
+                <i class="fab fa-facebook hover:text-white cursor-pointer"></i>
+                <i class="fab fa-twitter hover:text-white cursor-pointer"></i>
+                <i class="fab fa-instagram hover:text-white cursor-pointer"></i>
+                <i class="fab fa-youtube hover:text-white cursor-pointer"></i>
+            </div>
+            
+            <p class="text-[11px]">Copyright 2026 © Bigtree Entertainment Pvt. Ltd. All Rights Reserved.</p>
+        </div>
     </footer>
 
 </body>

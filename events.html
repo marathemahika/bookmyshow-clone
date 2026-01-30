@@ -3,68 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events in Mumbai | Workshops, Comedy, Music | BookMyShow </title>
+    <title>Events in Mumbai | BookMyShow </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        body { font-family: 'Roboto', sans-serif; background-color: #f5f5f5; }
+        .nav-container { background-color: #333545; }
+        .filter-chip { @apply border border-gray-300 text-gray-700 px-3 py-1 rounded text-sm cursor-pointer hover:border-[#F84464] hover:text-[#F84464] transition-all bg-white; }
+        .filter-chip.active { @apply bg-[#F84464] text-white border-[#F84464]; }
+        
+        /* Event Card Specifics */
+        .event-card { @apply bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer; }
+        .event-image-wrapper { @apply relative overflow-hidden; aspect-ratio: 16/9; }
+        .event-image-wrapper img { @apply w-full h-full object-cover transition-transform duration-500 hover:scale-110; }
+        .date-tag { @apply absolute bottom-2 left-2 bg-black/70 text-white text-[10px] font-bold px-2 py-1 rounded; }
+    </style>
 </head>
-<body class="bg-[#F5F5F5]">
+<body>
 
-    <nav class="nav-container px-4 lg:px-16 py-3 flex items-center justify-between">
-        <div class="flex items-center gap-8 w-full max-w-4xl">
-            <a href="index.html">
-                <h1 class="text-3xl font-bold italic tracking-tighter cursor-pointer text-white">
-                    book<span class="text-[#F84464]">my</span>show
-                </h1>
-            </a>
-            <div class="search-wrapper hidden md:block">
+    <nav class="nav-container px-4 lg:px-16 py-3 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-8 flex-1">
+            <h1 class="text-2xl font-bold italic text-white">book<span class="text-[#F84464]">my</span>show</h1>
+            <div class="relative hidden md:block flex-1 max-w-xl">
                 <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                <input type="text" class="search-input text-black" placeholder="Search for Events, Plays, Sports and Activities">
+                <input type="text" class="w-full py-2 pl-10 rounded text-sm outline-none" placeholder="Search for Events, Plays, Sports and Activities">
             </div>
         </div>
-        <div class="flex items-center gap-6 text-white text-sm">
-            <div class="cursor-pointer">Mumbai <i class="fas fa-chevron-down text-[10px] ml-1"></i></div>
-            <button class="btn-primary text-xs px-4 py-1.5">Sign in</button>
+        <div class="flex items-center gap-6 text-white text-sm ml-4">
+            <button class="bg-[#F84464] px-4 py-1.5 rounded text-xs font-medium">Sign in</button>
+            <i class="fas fa-bars text-xl"></i>
         </div>
     </nav>
 
-    <div class="bg-[#1F2533] text-gray-300 px-4 lg:px-16 py-2 flex gap-6 text-sm">
-        <a href="index.html" class="hover:text-white">Movies</a>
-        <a href="stream.html" class="hover:text-white">Stream</a>
-        <a href="events.html" class="text-white font-medium border-b-2 border-[#F84464] pb-1">Events</a>
-        <a href="plays.html" class="hover:text-white">Plays</a>
-        <a href="sports.html" class="hover:text-white">Sports</a>
-        <a href="activities.html" class="hover:text-white">Activities</a>
+    <div class="bg-[#2B3148] text-gray-300 px-4 lg:px-16 py-2.5 flex gap-8 text-sm overflow-x-auto">
+        <a href="index.html" class="hover:text-white transition">Movies</a>
+        <a href="#" class="text-white font-medium border-b-2 border-[#F84464] pb-1">Events</a>
+        <a href="#" class="hover:text-white transition">Plays</a>
+        <a href="#" class="hover:text-white transition">Sports</a>
+        <a href="#" class="hover:text-white transition">Activities</a>
     </div>
 
-    <main class="main-wrapper">
+    <main class="max-w-[1240px] mx-auto flex flex-col lg:flex-row gap-8 py-10 px-4">
         
-        <aside class="sticky-sidebar hidden lg:block">
-            <h2 class="text-2xl font-bold mb-6">Filters</h2>
+        <aside class="w-full lg:w-1/4">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Filters</h2>
             
-            <div class="filter-card">
-                <div class="filter-title">Date <i class="fas fa-chevron-up"></i></div>
-                <div class="chip-group">
+            <div class="bg-white rounded-lg p-4 mb-4 border border-gray-200">
+                <div class="flex justify-between items-center mb-4 cursor-pointer">
+                    <span class="font-bold text-sm text-gray-700">Date</span>
+                    <i class="fas fa-chevron-up text-xs text-gray-400"></i>
+                </div>
+                <div class="flex flex-wrap gap-2">
                     <span class="filter-chip active">Today</span>
                     <span class="filter-chip">Tomorrow</span>
                     <span class="filter-chip">This Weekend</span>
                 </div>
             </div>
 
-            <div class="filter-card">
-                <div class="filter-title">Categories <i class="fas fa-chevron-up"></i></div>
-                <div class="chip-group">
-                    <span class="filter-chip">Comedy Shows</span>
+            <div class="bg-white rounded-lg p-4 mb-4 border border-gray-200">
+                <div class="flex justify-between items-center mb-4 cursor-pointer">
+                    <span class="font-bold text-sm text-gray-700">Categories</span>
+                    <i class="fas fa-chevron-up text-xs text-gray-400"></i>
+                </div>
+                <div class="flex flex-wrap gap-2">
                     <span class="filter-chip">Workshops</span>
+                    <span class="filter-chip">Comedy Shows</span>
                     <span class="filter-chip">Music Shows</span>
                     <span class="filter-chip">Kids</span>
-                    <span class="filter-chip">Meetups</span>
+                    <span class="filter-chip">Spirituality</span>
                 </div>
             </div>
 
-            <div class="filter-card">
-                <div class="filter-title">Price <i class="fas fa-chevron-up"></i></div>
-                <div class="chip-group">
+            <div class="bg-white rounded-lg p-4 mb-4 border border-gray-200">
+                <div class="flex justify-between items-center mb-4 cursor-pointer">
+                    <span class="font-bold text-sm text-gray-700">Price</span>
+                    <i class="fas fa-chevron-up text-xs text-gray-400"></i>
+                </div>
+                <div class="flex flex-wrap gap-2">
                     <span class="filter-chip">Free</span>
                     <span class="filter-chip">0 - 500</span>
                     <span class="filter-chip">501 - 2000</span>
@@ -73,56 +89,64 @@
             </div>
         </aside>
 
-        <section class="content-grid">
-            <div class="flex flex-wrap gap-2 mb-8">
-                <span class="bg-white border border-gray-300 rounded-full px-4 py-1 text-xs text-pink-500 font-bold cursor-pointer">Workshops</span>
-                <span class="bg-white border border-gray-300 rounded-full px-4 py-1 text-xs hover:text-pink-500 cursor-pointer transition">Comedy Shows</span>
-                <span class="bg-white border border-gray-300 rounded-full px-4 py-1 text-xs hover:text-pink-500 cursor-pointer transition">Music Shows</span>
+        <section class="flex-1">
+            <div class="flex justify-between items-end mb-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Events in Mumbai</h2>
+                    <p class="text-xs text-gray-500 mt-1">Explore the best events happening around you</p>
+                </div>
             </div>
 
-            <h2 class="text-2xl font-bold mb-6">Events in Mumbai</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer">
-                    <div class="relative h-48">
-                        <img src="https://placehold.co/600x400/333/fff?text=Alan+Walker+Live" alt="Concert" class="w-full h-full object-cover">
-                        <div class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-2 py-1 rounded">Fast Filling</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                
+                <div class="event-card">
+                    <div class="event-image-wrapper">
+                        <img src="https://placehold.co/600x400/4c1d95/ffffff?text=Standup+Comedy+Night" alt="Event">
+                        <span class="date-tag">SAT, 15 FEB</span>
                     </div>
                     <div class="p-4">
-                        <h3 class="font-bold text-gray-800 text-lg truncate">Alan Walker: Walkerworld Tour</h3>
-                        <p class="text-gray-500 text-sm mt-1">Mahalaxmi Race Course: Mumbai</p>
-                        <p class="text-gray-400 text-xs mt-2 uppercase font-bold">Concerts | ₹1500 onwards</p>
+                        <h3 class="font-bold text-lg mb-1 truncate">Laughter Therapy ft. Top Comics</h3>
+                        <p class="text-gray-600 text-sm mb-2">The Habitat: Mumbai</p>
+                        <p class="text-gray-400 text-xs mb-3">Comedy Shows | English, Hindi | 18yrs +</p>
+                        <div class="flex justify-between items-center pt-3 border-t">
+                            <span class="font-bold text-gray-800">₹499 onwards</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer">
-                    <div class="relative h-48">
-                        <img src="https://placehold.co/600x400/444/fff?text=Zakir+Khan+Comedy" alt="Comedy" class="w-full h-full object-cover">
+                <div class="event-card">
+                    <div class="event-image-wrapper">
+                        <img src="https://placehold.co/600x400/be123c/ffffff?text=Sunburn+Arena" alt="Event">
+                        <span class="date-tag">SUN, 23 FEB</span>
                     </div>
                     <div class="p-4">
-                        <h3 class="font-bold text-gray-800 text-lg truncate">Zakir Khan - Live in Mumbai</h3>
-                        <p class="text-gray-500 text-sm mt-1">Shanmukhananda Hall: Mumbai</p>
-                        <p class="text-gray-400 text-xs mt-2 uppercase font-bold">Comedy | ₹499 onwards</p>
+                        <h3 class="font-bold text-lg mb-1 truncate">Sunburn Arena ft. Alan Walker</h3>
+                        <p class="text-gray-600 text-sm mb-2">Jio World Garden</p>
+                        <p class="text-gray-400 text-xs mb-3">Concerts | English | All Age Groups</p>
+                        <div class="flex justify-between items-center pt-3 border-t">
+                            <span class="font-bold text-gray-800">₹1,500 onwards</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer">
-                    <div class="relative h-48">
-                        <img src="https://placehold.co/600x400/555/fff?text=Art+Workshop" alt="Workshop" class="w-full h-full object-cover">
+                <div class="event-card">
+                    <div class="event-image-wrapper">
+                        <img src="https://placehold.co/600x400/065f46/ffffff?text=Pottery+Workshop" alt="Event">
+                        <span class="date-tag">FRI, 14 FEB</span>
                     </div>
                     <div class="p-4">
-                        <h3 class="font-bold text-gray-800 text-lg truncate">Canvas Painting Masterclass</h3>
-                        <p class="text-gray-500 text-sm mt-1">Multiple Venues</p>
-                        <p class="text-gray-400 text-xs mt-2 uppercase font-bold">Workshops | ₹750 onwards</p>
+                        <h3 class="font-bold text-lg mb-1 truncate">Clay & Create: Pottery Workshop</h3>
+                        <p class="text-gray-600 text-sm mb-2">Art Village, Karjat</p>
+                        <p class="text-gray-400 text-xs mb-3">Workshops | English | Kids Welcome</p>
+                        <div class="flex justify-between items-center pt-3 border-t">
+                            <span class="font-bold text-[#F84464]">FREE</span>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
     </main>
-
-    <footer class="mt-20 py-10 bg-[#333545] text-center text-gray-400 text-xs">
-        <p>Copyright 2026 © Bigtree Entertainment Pvt. Ltd. All Rights Reserved.</p>
-    </footer>
 
 </body>
 </html>

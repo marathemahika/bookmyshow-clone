@@ -1,190 +1,166 @@
-/* --- 1. BRAND VARIABLES --- */
-:root {
-    --bms-pink: #F84464;
-    --bms-dark-blue: #333545;   /* Main Nav */
-    --bms-navy: #1F2533;        /* Category Nav */
-    --bms-bg: #F5F5F5;
-    --bms-white: #FFFFFF;
-    --shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
+/* --- Global Reset & Foundation --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
-/* --- 2. RESET & BASE --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+:root {
+    --primary-red: #F84464;
+    --nav-bg: #333545;
+    --sub-nav-bg: #2B3148;
+    --bg-light: #f5f5f5;
+    --bg-dark: #121212;
+    --text-gray: #666666;
 }
 
 body {
-    background-color: var(--bms-bg);
-    color: #222;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-light);
+    color: #333;
+    margin: 0;
     overflow-x: hidden;
 }
 
-a { text-decoration: none; color: inherit; }
-
-/* --- 3. THE TRIPLE NAV STACK --- */
-
-/* Bar 1: Branding & Search */
-.nav-main {
-    background-color: var(--bms-dark-blue);
-    padding: 10px 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1000;
+/* --- Shared Layout Components --- */
+.nav-container {
+    background-color: var(--nav-bg);
 }
 
-.search-box {
-    background: white;
-    width: 50%;
-    display: flex;
-    align-items: center;
-    padding: 8px 15px;
-    border-radius: 4px;
+.sub-nav {
+    background-color: var(--sub-nav-bg);
 }
 
-.search-box input {
-    border: none;
-    outline: none;
+.search-input {
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.search-input:focus {
     width: 100%;
-    margin-left: 10px;
-    font-size: 14px;
+    border-color: var(--primary-red);
 }
 
-/* Bar 2: Categories */
-.nav-categories {
-    background-color: var(--bms-navy);
-    padding: 0 60px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.nav-links {
-    display: flex;
-    gap: 25px;
-    height: 100%;
-}
-
-.nav-links a {
-    color: #ccc;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    position: relative;
-    transition: 0.2s;
-}
-
-.nav-links a:hover { color: white; }
-
-.nav-links a.active {
-    color: white;
-    font-weight: 500;
-}
-
-.nav-links a.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--bms-pink);
-}
-
-/* Bar 3: Sports/Activities Specific Strip */
-.icon-strip {
-    background: white;
-    padding: 15px 0;
-    display: flex;
-    justify-content: center;
-    gap: 45px;
-    border-bottom: 1px solid #ddd;
-}
-
-/* --- 4. GRID & CARD STYLES --- */
-.container {
-    max-width: 1240px;
-    margin: 30px auto;
-    display: flex;
-    padding: 0 20px;
-    gap: 30px;
-}
-
-.sidebar { width: 280px; }
-
-.content-area { flex: 1; }
-
-.movie-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 30px;
-}
-
-/* Card Design */
-.card {
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.card:hover { transform: translateY(-8px); }
-
-.poster-box {
-    width: 100%;
-    aspect-ratio: 2/3;
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-}
-
-.poster-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Rating Badge Overlay */
-.rating-badge {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 6px 10px;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    backdrop-filter: blur(5px);
-}
-
-.card-info { padding: 12px 0; }
-.card-info h3 { font-size: 18px; font-weight: bold; margin-bottom: 4px; }
-.card-info p { color: #666; font-size: 14px; }
-
-/* --- 5. FILTERS --- */
-.filter-group {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #e5e5e5;
-}
-
-.chip {
+/* --- Reusable UI Elements (Chips & Badges) --- */
+.filter-chip {
     display: inline-block;
+    padding: 4px 12px;
     border: 1px solid #ddd;
-    color: var(--bms-pink);
-    padding: 4px 10px;
-    font-size: 12px;
-    border-radius: 3px;
-    margin: 3px;
+    border-radius: 4px;
+    font-size: 13px;
     cursor: pointer;
+    transition: 0.2s;
+    background: white;
 }
 
-.chip.active { background: var(--bms-pink); color: white; border-color: var(--bms-pink); }
+.filter-chip.active, .filter-chip:hover {
+    border-color: var(--primary-red);
+    color: var(--primary-red);
+}
+
+.badge-tag {
+    position: absolute;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+/* --- Page Specific: Movies (Vertical) --- */
+.movie-card {
+    transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+}
+
+.poster-wrapper {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 2/3;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* --- Page Specific: Stream (Dark Theme) --- */
+.stream-page {
+    background-color: var(--bg-dark) !important;
+    color: white;
+}
+
+.stream-card {
+    background: #1f1f1f;
+    border-radius: 8px;
+    transition: ring 0.3s;
+}
+
+.play-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stream-card:hover .play-overlay {
+    opacity: 1;
+}
+
+/* --- Page Specific: Sports (Landscape) --- */
+.sport-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.sport-banner {
+    aspect-ratio: 16/9;
+    position: relative;
+}
+
+.live-indicator {
+    background: #ff0000;
+    color: white;
+    padding: 2px 8px;
+    font-size: 10px;
+    border-radius: 4px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* --- Page Specific: Activities (Square) --- */
+.activity-img-wrapper {
+    aspect-ratio: 1/1;
+}
+
+.price-discount {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+/* --- Responsive Helpers --- */
+@media (max-width: 768px) {
+    .search-input {
+        width: 100%;
+    }
+    
+    .sidebar {
+        display: none; /* Hide filters on mobile by default */
+    }
+}
+
+/* --- Footer Styling --- */
+footer {
+    background-color: #313034;
+    color: #999;
+    padding: 40px 0;
+    text-align: center;
+}

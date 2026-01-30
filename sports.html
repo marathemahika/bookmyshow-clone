@@ -3,133 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports Events in Mumbai | BookMyShow </title>
+    <title>Sports Events & Matches | BookMyShow Clone</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        body { font-family: 'Roboto', sans-serif; background-color: #f1f3f6; }
+        .nav-container { background-color: #333545; }
+        
+        /* Sport Card Styles */
+        .sport-card { @apply bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100; }
+        .sport-banner { @apply relative overflow-hidden; aspect-ratio: 16/9; }
+        .sport-banner img { @apply w-full h-full object-cover transition-transform duration-700 hover:scale-105; }
+        
+        .live-badge { @apply absolute top-3 left-3 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 animate-pulse; }
+        .category-tag { @apply absolute bottom-3 left-3 bg-white/90 text-black text-[10px] font-bold px-2 py-1 rounded uppercase; }
+        
+        .date-box { @apply flex flex-col items-center justify-center bg-gray-100 rounded-lg p-2 min-w-[60px]; }
+        .price-text { @apply text-green-600 font-bold text-sm; }
+    </style>
 </head>
-<body class="bg-[#F5F5F5]">
+<body>
 
-    <nav class="nav-container px-4 lg:px-16 py-3 flex items-center justify-between">
-        <div class="flex items-center gap-8 w-full max-w-4xl">
-            <a href="index.html">
-                <h1 class="text-3xl font-bold italic tracking-tighter cursor-pointer text-white">
-                    book<span class="text-[#F84464]">my</span>show
-                </h1>
-            </a>
-            <div class="search-wrapper hidden md:block">
+    <nav class="nav-container px-4 lg:px-16 py-3 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-8 flex-1">
+            <h1 class="text-2xl font-bold italic text-white">book<span class="text-[#F84464]">my</span>show</h1>
+            <div class="relative hidden md:block flex-1 max-w-xl">
                 <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                <input type="text" class="search-input text-black" placeholder="Search for Cricket, Football, and more">
+                <input type="text" class="w-full py-2 pl-10 rounded text-sm outline-none" placeholder="Search for Cricket, Football, Marathons or Racing">
             </div>
         </div>
-        <div class="flex items-center gap-6 text-white text-sm">
-            <div class="cursor-pointer hover:text-gray-300">Mumbai <i class="fas fa-chevron-down text-[10px] ml-1"></i></div>
-            <button class="btn-primary text-xs px-4 py-1.5">Sign in</button>
+        <div class="flex items-center gap-4 text-white text-sm ml-4">
+            <button class="bg-[#F84464] px-4 py-1.5 rounded text-xs font-medium">Sign in</button>
             <i class="fas fa-bars text-xl cursor-pointer"></i>
         </div>
     </nav>
 
-    <div class="bg-[#1F2533] text-gray-300 px-4 lg:px-16 py-2 flex justify-between items-center text-sm">
-        <div class="flex gap-6">
-            <a href="index.html" class="hover:text-white transition">Movies</a>
-            <a href="stream.html" class="hover:text-white transition">Stream</a>
-            <a href="events.html" class="hover:text-white transition">Events</a>
-            <a href="plays.html" class="hover:text-white transition">Plays</a>
-            <a href="sports.html" class="text-white font-medium border-b-2 border-[#F84464] pb-1">Sports</a>
-            <a href="activities.html" class="hover:text-white transition">Activities</a>
-        </div>
-        <div class="hidden lg:flex gap-4 text-xs">
-            <a href="#" class="hover:text-white">ListYourShow</a>
-            <a href="#" class="hover:text-white">Offers</a>
-            <a href="#" class="hover:text-white">Gift Cards</a>
-        </div>
+    <div class="bg-[#2B3148] text-gray-300 px-4 lg:px-16 py-2.5 flex gap-8 text-sm overflow-x-auto whitespace-nowrap">
+        <a href="index.html" class="hover:text-white transition">Movies</a>
+        <a href="stream.html" class="hover:text-white transition">Stream</a>
+        <a href="events.html" class="hover:text-white transition">Events</a>
+        <a href="plays.html" class="hover:text-white transition">Plays</a>
+        <a href="#" class="text-white font-medium border-b-2 border-[#F84464] pb-1">Sports</a>
     </div>
 
-    <div class="bg-white border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-10 py-4 flex justify-center gap-10 overflow-x-auto no-scrollbar">
-            <div class="flex flex-col items-center cursor-pointer text-[#F84464] group min-w-[70px]">
-                <div class="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center mb-1 group-hover:bg-pink-100 transition">
-                    <i class="fas fa-cricket-bat-ball text-xl"></i>
-                </div>
-                <span class="text-[10px] font-bold uppercase tracking-tight">Cricket</span>
-            </div>
-            <div class="flex flex-col items-center cursor-pointer text-gray-500 hover:text-[#F84464] group min-w-[70px]">
-                <div class="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-1 group-hover:bg-pink-50 transition">
-                    <i class="fas fa-futbol text-xl"></i>
-                </div>
-                <span class="text-[10px] font-bold uppercase tracking-tight">Football</span>
-            </div>
-            <div class="flex flex-col items-center cursor-pointer text-gray-500 hover:text-[#F84464] group min-w-[70px]">
-                <div class="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-1 group-hover:bg-pink-50 transition">
-                    <i class="fas fa-running text-xl"></i>
-                </div>
-                <span class="text-[10px] font-bold uppercase tracking-tight">Marathon</span>
-            </div>
-            <div class="flex flex-col items-center cursor-pointer text-gray-500 hover:text-[#F84464] group min-w-[70px]">
-                <div class="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-1 group-hover:bg-pink-50 transition">
-                    <i class="fas fa-basketball-ball text-xl"></i>
-                </div>
-                <span class="text-[10px] font-bold uppercase tracking-tight">Basketball</span>
-            </div>
-        </div>
-    </div>
-
-    <main class="main-wrapper">
+    <main class="max-w-[1240px] mx-auto flex flex-col lg:flex-row gap-8 py-10 px-4">
         
-        <aside class="sticky-sidebar hidden lg:block">
+        <aside class="w-full lg:w-1/4">
             <h2 class="text-2xl font-bold mb-6">Filters</h2>
             
-            <div class="filter-card">
-                <div class="filter-title">Price <i class="fas fa-chevron-up"></i></div>
-                <div class="chip-group">
-                    <span class="filter-chip">Free</span>
-                    <span class="filter-chip active">0 - 500</span>
-                    <span class="filter-chip">Above 2000</span>
+            <div class="bg-white rounded-xl p-5 border border-gray-200 shadow-sm mb-4">
+                <p class="font-bold text-sm mb-4">Select Sport</p>
+                <div class="flex flex-wrap gap-2">
+                    <button class="px-3 py-1.5 bg-[#F84464] text-white rounded-full text-xs">Cricket</button>
+                    <button class="px-3 py-1.5 border border-gray-300 rounded-full text-xs hover:border-[#F84464]">Football</button>
+                    <button class="px-3 py-1.5 border border-gray-300 rounded-full text-xs hover:border-[#F84464]">Marathon</button>
+                    <button class="px-3 py-1.5 border border-gray-300 rounded-full text-xs hover:border-[#F84464]">E-Sports</button>
                 </div>
             </div>
 
-            <div class="filter-card">
-                <div class="filter-title">Venues <i class="fas fa-chevron-up"></i></div>
-                <div class="chip-group">
-                    <span class="filter-chip">Wankhede Stadium</span>
-                    <span class="filter-chip">DY Patil Stadium</span>
+            <div class="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
+                <p class="font-bold text-sm mb-4">Availability</p>
+                <div class="space-y-3">
+                    <label class="flex items-center text-sm cursor-pointer">
+                        <input type="checkbox" class="accent-[#F84464] w-4 h-4 mr-2"> Fast Filling
+                    </label>
+                    <label class="flex items-center text-sm cursor-pointer">
+                        <input type="checkbox" class="accent-[#F84464] w-4 h-4 mr-2"> Show Sold Out
+                    </label>
                 </div>
             </div>
         </aside>
 
-        <section class="content-grid">
-            <h2 class="text-2xl font-bold mb-6">Sports in Mumbai</h2>
+        <section class="flex-1">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">Sports in Mumbai</h2>
+                <p class="text-gray-500 text-sm mt-1">Don't just watch, be part of the game.</p>
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer group">
-                    <div class="relative h-44 overflow-hidden">
-                        <img src="https://placehold.co/600x300/1a1a1a/fff?text=Cricket+Match" alt="Cricket" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute top-0 right-0 bg-[#F84464] text-white text-[10px] font-bold px-3 py-1">FAST FILLING</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="sport-card">
+                    <div class="sport-banner">
+                        <img src="https://placehold.co/800x450/064e3b/ffffff?text=Mumbai+Indians+vs+CSK" alt="Cricket">
+                        <div class="live-badge"><i class="fas fa-circle text-[6px]"></i> LIVE</div>
+                        <span class="category-tag">Cricket</span>
                     </div>
-                    <div class="p-4 border-t border-gray-100">
-                        <h3 class="font-bold text-gray-800 text-lg">T20: MI vs CSK</h3>
-                        <p class="text-gray-500 text-sm mt-1">Wankhede Stadium: Mumbai</p>
-                        <p class="text-[#F84464] font-bold text-xs mt-3 uppercase">Cricket | ₹1500 onwards</p>
+                    <div class="p-5 flex gap-4">
+                        <div class="date-box">
+                            <span class="text-[10px] uppercase font-bold text-gray-400">Jan</span>
+                            <span class="text-xl font-bold">31</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg leading-tight">IPL 2026: MI vs Chennai Super Kings</h3>
+                            <p class="text-gray-500 text-sm mt-1"><i class="fas fa-map-marker-alt text-xs mr-1"></i> Wankhede Stadium</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="price-text">₹800 onwards</span>
+                                <button class="bg-[#F84464] text-white px-4 py-1.5 rounded text-xs font-bold uppercase tracking-tighter">Book Now</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer group">
-                    <div class="relative h-44 overflow-hidden">
-                        <img src="https://placehold.co/600x300/222/fff?text=Football+Match" alt="Football" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="sport-card">
+                    <div class="sport-banner">
+                        <img src="https://placehold.co/800x450/1e3a8a/ffffff?text=Mumbai+City+FC" alt="Football">
+                        <span class="category-tag">Football</span>
                     </div>
-                    <div class="p-4 border-t border-gray-100">
-                        <h3 class="font-bold text-gray-800 text-lg">ISL: Mumbai City FC</h3>
-                        <p class="text-gray-500 text-sm mt-1">Mumbai Football Arena</p>
-                        <p class="text-[#F84464] font-bold text-xs mt-3 uppercase">Football | ₹499 onwards</p>
+                    <div class="p-5 flex gap-4">
+                        <div class="date-box">
+                            <span class="text-[10px] uppercase font-bold text-gray-400">Feb</span>
+                            <span class="text-xl font-bold">05</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg leading-tight">ISL: Mumbai City FC vs Mohun Bagan</h3>
+                            <p class="text-gray-500 text-sm mt-1"><i class="fas fa-map-marker-alt text-xs mr-1"></i> Mumbai Football Arena</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="price-text">₹250 onwards</span>
+                                <button class="bg-[#F84464] text-white px-4 py-1.5 rounded text-xs font-bold uppercase tracking-tighter">Book Now</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="sport-card">
+                    <div class="sport-banner">
+                        <img src="https://placehold.co/800x450/78350f/ffffff?text=Tata+Mumbai+Marathon" alt="Marathon">
+                        <span class="category-tag">Running</span>
+                    </div>
+                    <div class="p-5 flex gap-4">
+                        <div class="date-box">
+                            <span class="text-[10px] uppercase font-bold text-gray-400">Feb</span>
+                            <span class="text-xl font-bold">18</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg leading-tight">Tata Mumbai Marathon 2026</h3>
+                            <p class="text-gray-500 text-sm mt-1"><i class="fas fa-map-marker-alt text-xs mr-1"></i> Marine Drive</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-orange-600 font-bold text-xs uppercase">Fast Filling</span>
+                                <button class="bg-[#F84464] text-white px-4 py-1.5 rounded text-xs font-bold uppercase tracking-tighter">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>
-
-    <footer class="mt-20 py-10 bg-[#333545] text-center text-gray-400 text-xs">
-        <p>Copyright 2026 © Bigtree Entertainment Pvt. Ltd. All Rights Reserved.</p>
-    </footer>
 
 </body>
 </html>
