@@ -10,7 +10,7 @@
 <body>
 
     <nav class="nav-main">
-        <div class="flex-items" style="display: flex; align-items: center; gap: 30px; width: 80%;">
+        <div style="display: flex; align-items: center; gap: 30px; width: 80%;">
             <h1 style="color:white; font-style:italic; font-size: 28px; cursor: pointer;">
                 book<span style="color:#F84464">my</span>show
             </h1>
@@ -22,7 +22,6 @@
         <div style="color:white; font-size: 14px; display: flex; align-items: center; gap: 20px;">
             <span style="cursor:pointer">Mumbai <i class="fas fa-chevron-down" style="font-size: 10px;"></i></span>
             <button style="background:#F84464; color:white; border:none; padding:7px 16px; border-radius:4px; font-weight:bold; cursor:pointer;">Sign in</button>
-            <i class="fas fa-bars" style="font-size: 20px; cursor:pointer"></i>
         </div>
     </nav>
 
@@ -35,48 +34,43 @@
             <a href="sports.html">Sports</a>
             <a href="activities.html">Activities</a>
         </div>
-        <div style="display: flex; gap: 15px; color: #ccc; font-size: 12px;">
-            <a href="#">ListYourShow</a>
-            <a href="#">Corporates</a>
-            <a href="#">Offers</a>
-            <a href="#">Gift Cards</a>
-        </div>
     </div>
+
+    <section style="background-color: #EBEBEB; padding: 15px 0;">
+        <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
+            <div style="width: 100%; height: 300px; border-radius: 8px; overflow: hidden; position: relative; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                <img src="https://image.tmdb.org/t/p/original/mDeS9ICpAdq56zV9uH6YyCc39FJ.jpg" alt="Featured Movie" style="width: 100%; height: 100%; object-fit: cover;">
+                
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 40px 30px; color: white;">
+                    <span style="background: #F84464; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">FEATURED</span>
+                    <h2 style="font-size: 32px; margin-top: 10px;">Spider-Man: Across the Spider-Verse</h2>
+                    <p style="font-size: 14px; opacity: 0.8;">Action, Adventure, Animation | English, Hindi, Tamil, Telugu</p>
+                </div>
+
+                <div style="position: absolute; top: 50%; left: 10px; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;"><i class="fas fa-chevron-left"></i></div>
+                <div style="position: absolute; top: 50%; right: 10px; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;"><i class="fas fa-chevron-right"></i></div>
+            </div>
+        </div>
+    </section>
 
     <div class="container">
         
         <aside class="sidebar">
             <h2 style="font-size: 24px; margin-bottom: 20px;">Filters</h2>
-            
             <div class="filter-group">
                 <p style="font-weight:bold; font-size:14px; margin-bottom:10px;">Languages</p>
                 <div class="chip active">English</div>
                 <div class="chip">Hindi</div>
-                <div class="chip">Marathi</div>
-                <div class="chip">Telugu</div>
             </div>
-
             <div class="filter-group">
                 <p style="font-weight:bold; font-size:14px; margin-bottom:10px;">Genres</p>
                 <div class="chip">Action</div>
                 <div class="chip">Drama</div>
-                <div class="chip">Comedy</div>
-                <div class="chip">Sci-Fi</div>
-            </div>
-
-            <div class="filter-group">
-                <p style="font-weight:bold; font-size:14px; margin-bottom:10px;">Format</p>
-                <div class="chip">2D</div>
-                <div class="chip">3D</div>
-                <div class="chip">IMAX 3D</div>
             </div>
         </aside>
 
         <main class="content-area">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
-                <h2 style="font-size: 24px; font-weight: bold;">Recommended Movies</h2>
-                <a href="#" style="color: #F84464; font-size: 14px; font-weight: 500;">See All ></a>
-            </div>
+            <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 25px;">Recommended Movies</h2>
 
             <div class="movie-grid">
                 
@@ -84,12 +78,12 @@
                     <div class="poster-box">
                         <img src="https://image.tmdb.org/t/p/w500/6EiRUJTLqh729QvYpT3Y0G3Ucz6.jpg" alt="Avatar">
                         <div class="rating-badge">
-                            <i class="fas fa-star" style="color:#F84464"></i> 8.8/10 <span style="font-size: 10px; color:#ccc;">240.5K Votes</span>
+                            <i class="fas fa-star" style="color:#F84464"></i> 8.8/10 <span>240.5K Votes</span>
                         </div>
                     </div>
                     <div class="card-info">
                         <h3>Avatar: The Way of Water</h3>
-                        <p>UA | English, Hindi, Tamil</p>
+                        <p>UA | English, Hindi</p>
                     </div>
                 </div>
 
@@ -97,7 +91,7 @@
                     <div class="poster-box">
                         <img src="https://image.tmdb.org/t/p/w500/8Gxv2mYqlLqzqS7S8Z2S0Yv2hU5.jpg" alt="Oppenheimer">
                         <div class="rating-badge">
-                            <i class="fas fa-star" style="color:#F84464"></i> 9.1/10 <span style="font-size: 10px; color:#ccc;">180K Votes</span>
+                            <i class="fas fa-star" style="color:#F84464"></i> 9.1/10 <span>180K Votes</span>
                         </div>
                     </div>
                     <div class="card-info">
@@ -110,25 +104,12 @@
                     <div class="poster-box">
                         <img src="https://image.tmdb.org/t/p/w500/czembS0RhiERbt6n9S8QI3nC39P.jpg" alt="Dune 2">
                         <div class="rating-badge">
-                            <i class="fas fa-thumbs-up" style="color:#4caf50"></i> 94% <span style="font-size: 10px; color:#ccc;">New Release</span>
+                            <i class="fas fa-thumbs-up" style="color:#4caf50"></i> 94% <span>New Release</span>
                         </div>
                     </div>
                     <div class="card-info">
                         <h3>Dune: Part Two</h3>
                         <p>UA | English, Hindi</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="poster-box">
-                        <img src="https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onun.jpg" alt="The Batman">
-                        <div class="rating-badge">
-                            <i class="fas fa-star" style="color:#F84464"></i> 8.5/10 <span style="font-size: 10px; color:#ccc;">95K Votes</span>
-                        </div>
-                    </div>
-                    <div class="card-info">
-                        <h3>The Batman</h3>
-                        <p>UA | English</p>
                     </div>
                 </div>
 
