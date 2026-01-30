@@ -1,87 +1,23 @@
-/* 1. Brand Variables */
-:root {
-    --bms-pink: #F84464;
-    --bms-dark-blue: #333545;
-    --bms-nav-bg: #1F2533;
-    --bms-light-gray: #F5F5F5;
+/* Sidebar Chip Styling */
+.filter-chip {
+    border: 1px solid #e5e7eb;
+    color: #F84464;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: white;
+    transition: all 0.2s ease;
 }
 
-/* 2. Global Resets */
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif; /* BookMyShow uses a clean sans-serif */
-    color: #222;
-}
-
-/* 3. Custom Scrollbar (Matches the "Stream" and "Horizontal Scroll" sections) */
-::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--bms-pink);
-}
-
-/* 4. Movie Card Hover Effects */
-.movie-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.movie-card:hover {
-    transform: translateY(-5px);
-}
-
-/* 5. Custom Buttons */
-.btn-primary {
-    background-color: var(--bms-pink);
+.filter-chip.active, .filter-chip:hover {
+    background-color: #F84464;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: opacity 0.2s;
-    border: none;
-    cursor: pointer;
+    border-color: #F84464;
 }
 
-.btn-primary:hover {
-    opacity: 0.9;
-}
-
-/* 6. Sticky Sidebar Logic (For Events/Movies pages) */
+/* Sticky sidebar adjustment */
 .sticky-sidebar {
     position: sticky;
     top: 20px;
-    height: fit-content;
-}
-
-/* 7. Skeleton Loading Animation (Used when content loads) */
-@keyframes shimmer {
-    0% { background-position: -468px 0; }
-    100% { background-position: 468px 0; }
-}
-
-.skeleton {
-    background: #f6f7f8;
-    background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
-    background-repeat: no-repeat;
-    background-size: 800px 104px;
-    display: inline-block;
-    position: relative;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-name: shimmer;
-    animation-timing-function: linear;
+    height: calc(100vh - 40px);
 }
