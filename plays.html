@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plays & Theater in Mumbai | BookMyShow </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-[#F5F5F5]">
+
+    <nav class="bg-[#333545] text-white px-10 py-3 flex items-center justify-between shadow-md">
+        <div class="flex items-center space-x-4 w-1/2">
+            <h1 class="text-2xl font-bold italic tracking-tighter cursor-pointer">book<span class="text-pink-500">my</span>show</h1>
+            <input type="text" class="w-full bg-white text-black pl-4 pr-4 py-2 rounded-sm text-sm" placeholder="Search for Plays, Theater, and more...">
+        </div>
+        <div class="flex items-center space-x-6 text-sm">
+            <span>Mumbai <i class="fas fa-chevron-down text-xs"></i></span>
+            <button class="bg-[#F84464] px-4 py-1 rounded">Sign in</button>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto flex px-10 py-8 gap-8">
+        
+        <aside class="w-1/4 space-y-4">
+            <h2 class="text-2xl font-bold mb-4">Filters</h2>
+            
+            <div class="bg-white p-4 rounded shadow-sm">
+                <div class="flex justify-between items-center mb-4">
+                    <p class="font-semibold text-gray-700">Languages</p>
+                    <i class="fas fa-chevron-up text-xs text-gray-400"></i>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="border border-gray-300 text-pink-500 text-xs px-3 py-1 rounded">English</span>
+                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded">Hindi</span>
+                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded">Marathi</span>
+                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded">Gujarati</span>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded shadow-sm">
+                <div class="flex justify-between items-center mb-4">
+                    <p class="font-semibold text-gray-700">Genres</p>
+                    <i class="fas fa-chevron-up text-xs text-gray-400"></i>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded">Drama</span>
+                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded">Comedy</span>
+                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded">Musical</span>
+                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded">Classic</span>
+                </div>
+            </div>
+        </aside>
+
+        <section class="w-3/4">
+            <div class="flex justify-between items-end mb-6">
+                <h2 class="text-2xl font-bold">Plays in Mumbai</h2>
+                <span class="text-pink-500 text-sm font-semibold cursor-pointer">Explore All Plays ></span>
+            </div>
+
+            <div class="grid grid-cols-3 gap-8">
+                
+                <div class="cursor-pointer group">
+                    <div class="rounded-xl overflow-hidden mb-3 relative">
+                        <img src="https://via.placeholder.com/300x450?text=Theater+Play+Poster" alt="Play" class="w-full h-auto">
+                        <div class="absolute bottom-0 w-full bg-black/50 text-white text-[10px] p-2 flex justify-between">
+                            <span>8.5/10 (2k votes)</span>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg group-hover:text-pink-500 transition">Hamlet - A Classic Tale</h3>
+                    <p class="text-gray-600 text-sm">Prithvi Theatre: Juhu</p>
+                    <p class="text-gray-400 text-xs mt-1">Drama | English | ₹500 onwards</p>
+                </div>
+
+                <div class="cursor-pointer group">
+                    <div class="rounded-xl overflow-hidden mb-3 relative">
+                        <img src="https://via.placeholder.com/300x450?text=Comedy+Play+Poster" alt="Play" class="w-full h-auto">
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg group-hover:text-pink-500 transition">Honeymoon Package</h3>
+                    <p class="text-gray-600 text-sm">Tata Theatre: NCPA</p>
+                    <p class="text-gray-400 text-xs mt-1">Comedy | Marathi | ₹300 onwards</p>
+                </div>
+
+                <div class="cursor-pointer group">
+                    <div class="rounded-xl overflow-hidden mb-3 relative">
+                        <img src="https://via.placeholder.com/300x450?text=Musical+Play+Poster" alt="Play" class="w-full h-auto">
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg group-hover:text-pink-500 transition">Mughal-E-Azam</h3>
+                    <p class="text-gray-600 text-sm">NESCO: Mumbai</p>
+                    <p class="text-gray-400 text-xs mt-1">Musical | Hindi | ₹1200 onwards</p>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

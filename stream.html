@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream - Rent or Buy Movies Online | BookMyShow </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-[#1F2533] text-white font-sans">
+
+    <nav class="bg-[#333545] px-10 py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-4 w-1/2">
+            <h1 class="text-2xl font-bold italic tracking-tighter">book<span class="text-pink-500">my</span>show</h1>
+            <div class="relative w-full">
+                <input type="text" class="w-full bg-white text-black pl-10 pr-4 py-2 rounded-sm text-sm" placeholder="Search for Movies, Events, Plays...">
+            </div>
+        </div>
+        <div class="flex items-center space-x-6 text-sm">
+            <span class="text-gray-300">Mumbai <i class="fas fa-chevron-down text-xs"></i></span>
+            <button class="bg-[#F84464] px-4 py-1 rounded font-semibold">Sign in</button>
+        </div>
+    </nav>
+
+    <section class="w-full bg-black py-6">
+        <div class="max-w-7xl mx-auto px-10">
+            <div class="relative rounded-xl overflow-hidden shadow-2xl">
+                <img src="https://via.placeholder.com/1200x450?text=Stream+Premiere+Banner" alt="Hero" class="w-full h-auto">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex flex-col justify-center px-16">
+                    <span class="bg-[#F84464] text-[10px] font-bold px-2 py-1 rounded-full w-fit mb-4 uppercase tracking-widest">Premiere</span>
+                    <h2 class="text-5xl font-bold mb-2">The Dark Knight</h2>
+                    <p class="text-gray-300 max-w-md mb-6">When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.</p>
+                    <div class="flex space-x-4">
+                        <button class="bg-white text-black px-8 py-3 rounded-lg font-bold hover:bg-gray-200 transition">Rent ₹149</button>
+                        <button class="bg-transparent border border-white px-8 py-3 rounded-lg font-bold hover:bg-white/10 transition">Buy ₹499</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-10 py-12">
+        
+        <div class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">New Releases</h3>
+                <a href="#" class="text-[#F84464] text-sm font-semibold hover:underline">See All ></a>
+            </div>
+            
+            <div class="grid grid-cols-5 gap-6">
+                <div class="cursor-pointer group">
+                    <div class="relative rounded-lg overflow-hidden mb-3">
+                        <img src="https://via.placeholder.com/250x380" alt="Movie" class="w-full transition duration-300 group-hover:brightness-75">
+                        <div class="absolute top-2 left-2 bg-black/60 p-1 rounded">
+                            <i class="fas fa-play text-white text-[10px]"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-bold truncate">Oppenheimer</h4>
+                    <p class="text-gray-400 text-xs">English • Rent/Buy</p>
+                </div>
+
+                <div class="cursor-pointer group">
+                    <div class="relative rounded-lg overflow-hidden mb-3">
+                        <img src="https://via.placeholder.com/250x380" alt="Movie" class="w-full transition duration-300 group-hover:brightness-75">
+                        <div class="absolute top-2 left-2 bg-black/60 p-1 rounded">
+                            <i class="fas fa-play text-white text-[10px]"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-bold truncate">Dune: Part Two</h4>
+                    <p class="text-gray-400 text-xs">English • Rent/Buy</p>
+                </div>
+
+                </div>
+        </div>
+
+        <div class="w-full rounded-lg overflow-hidden mb-12">
+            <img src="https://via.placeholder.com/1200x150?text=Special+Offers+on+Stream+Rentals" alt="Promo" class="w-full">
+        </div>
+
+    </main>
+
+</body>
+</html>
