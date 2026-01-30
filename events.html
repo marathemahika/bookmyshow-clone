@@ -6,101 +6,123 @@
     <title>Events in Mumbai | Workshops, Comedy, Music | BookMyShow </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[#F5F5F5]">
 
-    <nav class="bg-[#333545] text-white px-10 py-3 flex items-center justify-between">
-        <div class="flex items-center space-x-4 w-1/2">
-            <h1 class="text-2xl font-bold italic tracking-tighter cursor-pointer">book<span class="text-pink-500">my</span>show</h1>
-            <input type="text" class="w-full bg-white text-black pl-4 pr-4 py-2 rounded-sm text-sm" placeholder="Search for Movies, Events, Plays...">
+    <nav class="nav-container px-4 lg:px-16 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-8 w-full max-w-4xl">
+            <a href="index.html">
+                <h1 class="text-3xl font-bold italic tracking-tighter cursor-pointer text-white">
+                    book<span class="text-[#F84464]">my</span>show
+                </h1>
+            </a>
+            <div class="search-wrapper hidden md:block">
+                <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input type="text" class="search-input text-black" placeholder="Search for Events, Plays, Sports and Activities">
+            </div>
         </div>
-        <div class="flex items-center space-x-6 text-sm">
-            <span>Mumbai <i class="fas fa-chevron-down text-xs"></i></span>
-            <button class="bg-[#F84464] px-4 py-1 rounded">Sign in</button>
+        <div class="flex items-center gap-6 text-white text-sm">
+            <div class="cursor-pointer">Mumbai <i class="fas fa-chevron-down text-[10px] ml-1"></i></div>
+            <button class="btn-primary text-xs px-4 py-1.5">Sign in</button>
         </div>
     </nav>
 
-    <div class="max-w-7xl mx-auto flex px-10 py-8 gap-8">
+    <div class="bg-[#1F2533] text-gray-300 px-4 lg:px-16 py-2 flex gap-6 text-sm">
+        <a href="index.html" class="hover:text-white">Movies</a>
+        <a href="stream.html" class="hover:text-white">Stream</a>
+        <a href="events.html" class="text-white font-medium border-b-2 border-[#F84464] pb-1">Events</a>
+        <a href="plays.html" class="hover:text-white">Plays</a>
+        <a href="sports.html" class="hover:text-white">Sports</a>
+        <a href="activities.html" class="hover:text-white">Activities</a>
+    </div>
+
+    <main class="main-wrapper">
         
-        <aside class="w-1/4 space-y-4">
-            <h2 class="text-2xl font-bold mb-4">Filters</h2>
+        <aside class="sticky-sidebar hidden lg:block">
+            <h2 class="text-2xl font-bold mb-6">Filters</h2>
             
-            <div class="bg-white p-4 rounded shadow-sm">
-                <p class="font-semibold text-gray-700 mb-3">Date</p>
-                <div class="flex flex-wrap gap-2">
-                    <button class="border border-gray-300 text-pink-500 px-3 py-1 rounded-sm text-xs">Today</button>
-                    <button class="border border-gray-300 text-gray-600 px-3 py-1 rounded-sm text-xs">Tomorrow</button>
-                    <button class="border border-gray-300 text-gray-600 px-3 py-1 rounded-sm text-xs">This Weekend</button>
+            <div class="filter-card">
+                <div class="filter-title">Date <i class="fas fa-chevron-up"></i></div>
+                <div class="chip-group">
+                    <span class="filter-chip active">Today</span>
+                    <span class="filter-chip">Tomorrow</span>
+                    <span class="filter-chip">This Weekend</span>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow-sm">
-                <p class="font-semibold text-gray-700 mb-3">Categories</p>
-                <div class="space-y-2">
-                    <label class="flex items-center text-sm text-gray-600">
-                        <input type="checkbox" class="mr-2 accent-pink-500"> Workshops
-                    </label>
-                    <label class="flex items-center text-sm text-gray-600">
-                        <input type="checkbox" class="mr-2 accent-pink-500"> Comedy Shows
-                    </label>
-                    <label class="flex items-center text-sm text-gray-600">
-                        <input type="checkbox" class="mr-2 accent-pink-500"> Music Shows
-                    </label>
+            <div class="filter-card">
+                <div class="filter-title">Categories <i class="fas fa-chevron-up"></i></div>
+                <div class="chip-group">
+                    <span class="filter-chip">Comedy Shows</span>
+                    <span class="filter-chip">Workshops</span>
+                    <span class="filter-chip">Music Shows</span>
+                    <span class="filter-chip">Kids</span>
+                    <span class="filter-chip">Meetups</span>
+                </div>
+            </div>
+
+            <div class="filter-card">
+                <div class="filter-title">Price <i class="fas fa-chevron-up"></i></div>
+                <div class="chip-group">
+                    <span class="filter-chip">Free</span>
+                    <span class="filter-chip">0 - 500</span>
+                    <span class="filter-chip">501 - 2000</span>
+                    <span class="filter-chip">Above 2000</span>
                 </div>
             </div>
         </aside>
 
-        <section class="w-3/4">
-            <h2 class="text-2xl font-bold mb-6">Events in Mumbai</h2>
-            
-            <div class="flex gap-3 mb-8">
-                <span class="bg-white border border-gray-300 rounded-full px-4 py-1 text-xs cursor-pointer hover:border-pink-500 text-pink-500">Workshops</span>
-                <span class="bg-white border border-gray-300 rounded-full px-4 py-1 text-xs cursor-pointer hover:border-pink-500">Comedy Shows</span>
-                <span class="bg-white border border-gray-300 rounded-full px-4 py-1 text-xs cursor-pointer hover:border-pink-500">Music Shows</span>
+        <section class="content-grid">
+            <div class="flex flex-wrap gap-2 mb-8">
+                <span class="bg-white border border-gray-300 rounded-full px-4 py-1 text-xs text-pink-500 font-bold cursor-pointer">Workshops</span>
+                <span class="bg-white border border-gray-300 rounded-full px-4 py-1 text-xs hover:text-pink-500 cursor-pointer transition">Comedy Shows</span>
+                <span class="bg-white border border-gray-300 rounded-full px-4 py-1 text-xs hover:text-pink-500 cursor-pointer transition">Music Shows</span>
             </div>
 
-            <div class="grid grid-cols-3 gap-6">
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer">
-                    <div class="relative">
-                        <img src="https://via.placeholder.com/400x200?text=Live+Music+Concert" alt="Event" class="w-full">
-                        <div class="absolute bottom-0 left-0 bg-black/60 text-white text-[10px] px-2 py-1">
-                            Featured
-                        </div>
+            <h2 class="text-2xl font-bold mb-6">Events in Mumbai</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer">
+                    <div class="relative h-48">
+                        <img src="https://placehold.co/600x400/333/fff?text=Alan+Walker+Live" alt="Concert" class="w-full h-full object-cover">
+                        <div class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-2 py-1 rounded">Fast Filling</div>
                     </div>
                     <div class="p-4">
-                        <h3 class="font-bold text-gray-800 truncate">Sunburn Arena ft. Alan Walker</h3>
-                        <p class="text-gray-500 text-sm mt-1">Mahalaxmi Racecourse: Mumbai</p>
-                        <p class="text-gray-400 text-xs mt-1">Concerts | English | ₹999 onwards</p>
+                        <h3 class="font-bold text-gray-800 text-lg truncate">Alan Walker: Walkerworld Tour</h3>
+                        <p class="text-gray-500 text-sm mt-1">Mahalaxmi Race Course: Mumbai</p>
+                        <p class="text-gray-400 text-xs mt-2 uppercase font-bold">Concerts | ₹1500 onwards</p>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer">
-                    <div class="relative">
-                        <img src="https://via.placeholder.com/400x200?text=Standup+Comedy" alt="Event" class="w-full">
-                        <div class="absolute bottom-0 left-0 bg-black/60 text-white text-[10px] px-2 py-1">
-                            Trending
-                        </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer">
+                    <div class="relative h-48">
+                        <img src="https://placehold.co/600x400/444/fff?text=Zakir+Khan+Comedy" alt="Comedy" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
-                        <h3 class="font-bold text-gray-800 truncate">Zakir Khan Live</h3>
-                        <p class="text-gray-500 text-sm mt-1">NCPA: Mumbai</p>
-                        <p class="text-gray-400 text-xs mt-1">Comedy | Hindi | ₹499 onwards</p>
+                        <h3 class="font-bold text-gray-800 text-lg truncate">Zakir Khan - Live in Mumbai</h3>
+                        <p class="text-gray-500 text-sm mt-1">Shanmukhananda Hall: Mumbai</p>
+                        <p class="text-gray-400 text-xs mt-2 uppercase font-bold">Comedy | ₹499 onwards</p>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer">
-                    <div class="relative">
-                        <img src="https://via.placeholder.com/400x200?text=Art+Workshop" alt="Event" class="w-full">
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer">
+                    <div class="relative h-48">
+                        <img src="https://placehold.co/600x400/555/fff?text=Art+Workshop" alt="Workshop" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
-                        <h3 class="font-bold text-gray-800 truncate">Canvas Painting Workshop</h3>
-                        <p class="text-gray-500 text-sm mt-1">Online Streaming</p>
-                        <p class="text-gray-400 text-xs mt-1">Workshops | English | Free</p>
+                        <h3 class="font-bold text-gray-800 text-lg truncate">Canvas Painting Masterclass</h3>
+                        <p class="text-gray-500 text-sm mt-1">Multiple Venues</p>
+                        <p class="text-gray-400 text-xs mt-2 uppercase font-bold">Workshops | ₹750 onwards</p>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
+    </main>
+
+    <footer class="mt-20 py-10 bg-[#333545] text-center text-gray-400 text-xs">
+        <p>Copyright 2026 © Bigtree Entertainment Pvt. Ltd. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>

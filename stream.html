@@ -6,78 +6,128 @@
     <title>Stream - Rent or Buy Movies Online | BookMyShow </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#1F2533] text-white font-sans">
+<body class="stream-body">
 
-    <nav class="bg-[#333545] px-10 py-3 flex items-center justify-between">
-        <div class="flex items-center space-x-4 w-1/2">
-            <h1 class="text-2xl font-bold italic tracking-tighter">book<span class="text-pink-500">my</span>show</h1>
-            <div class="relative w-full">
-                <input type="text" class="w-full bg-white text-black pl-10 pr-4 py-2 rounded-sm text-sm" placeholder="Search for Movies, Events, Plays...">
+    <nav class="nav-container px-4 lg:px-16 py-3 flex items-center justify-between border-b border-gray-700">
+        <div class="flex items-center gap-8 w-full max-w-4xl">
+            <a href="index.html">
+                <h1 class="text-3xl font-bold italic tracking-tighter text-white">
+                    book<span class="text-[#F84464]">my</span>show
+                </h1>
+            </a>
+            <div class="search-wrapper hidden md:block">
+                <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                <input type="text" class="search-input bg-[#2B3148] text-white border border-gray-600 focus:border-[#F84464]" placeholder="Search for Movies to Stream...">
             </div>
         </div>
-        <div class="flex items-center space-x-6 text-sm">
-            <span class="text-gray-300">Mumbai <i class="fas fa-chevron-down text-xs"></i></span>
-            <button class="bg-[#F84464] px-4 py-1 rounded font-semibold">Sign in</button>
+        <div class="flex items-center gap-6 text-white text-sm">
+            <div class="cursor-pointer">Mumbai <i class="fas fa-chevron-down text-[10px] ml-1"></i></div>
+            <button class="btn-primary text-xs px-4 py-1.5">Sign in</button>
         </div>
     </nav>
 
-    <section class="w-full bg-black py-6">
-        <div class="max-w-7xl mx-auto px-10">
-            <div class="relative rounded-xl overflow-hidden shadow-2xl">
-                <img src="https://via.placeholder.com/1200x450?text=Stream+Premiere+Banner" alt="Hero" class="w-full h-auto">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex flex-col justify-center px-16">
-                    <span class="bg-[#F84464] text-[10px] font-bold px-2 py-1 rounded-full w-fit mb-4 uppercase tracking-widest">Premiere</span>
-                    <h2 class="text-5xl font-bold mb-2">The Dark Knight</h2>
-                    <p class="text-gray-300 max-w-md mb-6">When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.</p>
-                    <div class="flex space-x-4">
+    <div class="bg-[#1F2533] text-gray-400 px-4 lg:px-16 py-2 flex gap-6 text-sm">
+        <a href="index.html" class="hover:text-white transition">Movies</a>
+        <a href="stream.html" class="text-white font-medium border-b-2 border-[#F84464] pb-1">Stream</a>
+        <a href="events.html" class="hover:text-white transition">Events</a>
+        <a href="plays.html" class="hover:text-white transition">Plays</a>
+        <a href="sports.html" class="hover:text-white transition">Sports</a>
+        <a href="activities.html" class="hover:text-white transition">Activities</a>
+    </div>
+
+    <header class="w-full bg-black py-6">
+        <div class="max-w-[1240px] mx-auto px-4 lg:px-0">
+            <div class="stream-hero rounded-xl overflow-hidden shadow-2xl" style="background-image: url('https://placehold.co/1240x450/111/fff?text=Epic+Action+Movie+Banner');">
+                <div class="relative z-10 p-12 max-w-lg">
+                    <span class="bg-[#F84464] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Premiere</span>
+                    <h2 class="text-5xl font-bold text-white mt-4 mb-2">The Dark Knight</h2>
+                    <p class="text-gray-300 text-sm mb-6 leading-relaxed">When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest tests of his ability to fight injustice.</p>
+                    <div class="flex gap-4">
                         <button class="bg-white text-black px-8 py-3 rounded-lg font-bold hover:bg-gray-200 transition">Rent ₹149</button>
-                        <button class="bg-transparent border border-white px-8 py-3 rounded-lg font-bold hover:bg-white/10 transition">Buy ₹499</button>
+                        <button class="border border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white/10 transition">Buy ₹499</button>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <main class="max-w-7xl mx-auto px-10 py-12">
+    <main class="max-w-[1240px] mx-auto px-4 py-12">
         
         <div class="mb-12">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold">New Releases</h3>
+                <h3 class="text-2xl font-bold text-white">New Releases</h3>
                 <a href="#" class="text-[#F84464] text-sm font-semibold hover:underline">See All ></a>
             </div>
             
-            <div class="grid grid-cols-5 gap-6">
-                <div class="cursor-pointer group">
-                    <div class="relative rounded-lg overflow-hidden mb-3">
-                        <img src="https://via.placeholder.com/250x380" alt="Movie" class="w-full transition duration-300 group-hover:brightness-75">
-                        <div class="absolute top-2 left-2 bg-black/60 p-1 rounded">
+            <div class="card-grid">
+                <div class="movie-card">
+                    <div class="poster-wrapper">
+                        <img src="https://placehold.co/400x600/1a1a1a/fff?text=Oppenheimer" alt="Movie">
+                        <div class="absolute top-2 left-2 bg-black/70 p-1.5 rounded-full">
                             <i class="fas fa-play text-white text-[10px]"></i>
                         </div>
                     </div>
-                    <h4 class="font-bold truncate">Oppenheimer</h4>
-                    <p class="text-gray-400 text-xs">English • Rent/Buy</p>
+                    <div class="mt-3">
+                        <h4 class="font-bold text-white truncate">Oppenheimer</h4>
+                        <p class="text-gray-400 text-xs mt-1 italic">English • Rent/Buy</p>
+                    </div>
                 </div>
 
-                <div class="cursor-pointer group">
-                    <div class="relative rounded-lg overflow-hidden mb-3">
-                        <img src="https://via.placeholder.com/250x380" alt="Movie" class="w-full transition duration-300 group-hover:brightness-75">
-                        <div class="absolute top-2 left-2 bg-black/60 p-1 rounded">
+                <div class="movie-card">
+                    <div class="poster-wrapper">
+                        <img src="https://placehold.co/400x600/222/fff?text=Dune+Part+Two" alt="Movie">
+                        <div class="absolute top-2 left-2 bg-black/70 p-1.5 rounded-full">
                             <i class="fas fa-play text-white text-[10px]"></i>
                         </div>
                     </div>
-                    <h4 class="font-bold truncate">Dune: Part Two</h4>
-                    <p class="text-gray-400 text-xs">English • Rent/Buy</p>
+                    <div class="mt-3">
+                        <h4 class="font-bold text-white truncate">Dune: Part Two</h4>
+                        <p class="text-gray-400 text-xs mt-1 italic">English • Rent/Buy</p>
+                    </div>
                 </div>
 
+                <div class="movie-card">
+                    <div class="poster-wrapper">
+                        <img src="https://placehold.co/400x600/333/fff?text=The+Batman" alt="Movie">
+                    </div>
+                    <div class="mt-3">
+                        <h4 class="font-bold text-white truncate">The Batman</h4>
+                        <p class="text-gray-400 text-xs mt-1 italic">English • Rent/Buy</p>
+                    </div>
                 </div>
+
+                <div class="movie-card">
+                    <div class="poster-wrapper">
+                        <img src="https://placehold.co/400x600/444/fff?text=Interstellar" alt="Movie">
+                    </div>
+                    <div class="mt-3">
+                        <h4 class="font-bold text-white truncate">Interstellar</h4>
+                        <p class="text-gray-400 text-xs mt-1 italic">English • Rent/Buy</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="w-full rounded-lg overflow-hidden mb-12">
-            <img src="https://via.placeholder.com/1200x150?text=Special+Offers+on+Stream+Rentals" alt="Promo" class="w-full">
+        <div class="w-full h-40 rounded-xl overflow-hidden bg-gradient-to-r from-pink-900 to-indigo-900 flex items-center px-12 mb-12 border border-gray-700">
+            <div class="flex-1">
+                <h4 class="text-2xl font-bold text-white">Exclusive Offers on Stream</h4>
+                <p class="text-gray-300 text-sm">Get 50% off on your first movie rental with code <span class="text-white font-mono font-bold">STREAM50</span></p>
+            </div>
+            <button class="bg-white text-black px-6 py-2 rounded font-bold hover:bg-gray-200">View Offers</button>
         </div>
 
     </main>
+
+    <footer class="bg-[#1F2533] border-t border-gray-800 py-12 px-4 lg:px-16 text-center">
+        <div class="flex justify-center gap-12 mb-8 text-gray-400">
+            <div class="flex flex-col items-center"><i class="fas fa-tv text-2xl mb-2"></i><span class="text-[10px] uppercase">Watch Anywhere</span></div>
+            <div class="flex flex-col items-center"><i class="fas fa-cloud-download-alt text-2xl mb-2"></i><span class="text-[10px] uppercase">Download & Watch</span></div>
+            <div class="flex flex-col items-center"><i class="fas fa-shield-alt text-2xl mb-2"></i><span class="text-[10px] uppercase">Secure Payments</span></div>
+        </div>
+        <p class="text-gray-500 text-xs">Copyright 2026 © Bigtree Entertainment Pvt. Ltd. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>

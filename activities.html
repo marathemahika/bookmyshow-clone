@@ -6,95 +6,121 @@
     <title>Adventure, Parks & Activities in Mumbai | BookMyShow </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[#F5F5F5]">
 
-    <nav class="bg-[#333545] text-white px-10 py-3 flex items-center justify-between shadow-md">
-        <div class="flex items-center space-x-4 w-1/2">
-            <h1 class="text-2xl font-bold italic tracking-tighter cursor-pointer">book<span class="text-pink-500">my</span>show</h1>
-            <input type="text" class="w-full bg-white text-black pl-4 pr-4 py-2 rounded-sm text-sm" placeholder="Search for Amusement Parks, Gaming, and more...">
+    <nav class="nav-container px-4 lg:px-16 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-8 w-full max-w-4xl">
+            <a href="index.html">
+                <h1 class="text-3xl font-bold italic tracking-tighter cursor-pointer text-white">
+                    book<span class="text-[#F84464]">my</span>show
+                </h1>
+            </a>
+            <div class="search-wrapper hidden md:block">
+                <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input type="text" class="search-input text-black" placeholder="Search for Amusement Parks, Resorts, and more">
+            </div>
         </div>
-        <div class="flex items-center space-x-6 text-sm">
-            <span>Mumbai <i class="fas fa-chevron-down text-xs"></i></span>
-            <button class="bg-[#F84464] px-4 py-1 rounded">Sign in</button>
+        <div class="flex items-center gap-6 text-white text-sm">
+            <div class="cursor-pointer">Mumbai <i class="fas fa-chevron-down text-[10px] ml-1"></i></div>
+            <button class="btn-primary text-xs px-4 py-1.5">Sign in</button>
         </div>
     </nav>
 
-    <div class="max-w-7xl mx-auto flex px-10 py-8 gap-8">
+    <div class="bg-[#1F2533] text-gray-300 px-4 lg:px-16 py-2 flex gap-6 text-sm">
+        <a href="index.html" class="hover:text-white transition">Movies</a>
+        <a href="stream.html" class="hover:text-white transition">Stream</a>
+        <a href="events.html" class="hover:text-white transition">Events</a>
+        <a href="plays.html" class="hover:text-white transition">Plays</a>
+        <a href="sports.html" class="hover:text-white transition">Sports</a>
+        <a href="activities.html" class="text-white font-medium border-b-2 border-[#F84464] pb-1">Activities</a>
+    </div>
+
+    <main class="main-wrapper">
         
-        <aside class="w-1/4 space-y-4">
-            <h2 class="text-2xl font-bold mb-4">Filters</h2>
+        <aside class="sticky-sidebar hidden lg:block">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Filters</h2>
             
-            <div class="bg-white p-4 rounded shadow-sm">
-                <p class="font-semibold text-gray-700 mb-3">Category</p>
-                <div class="space-y-2">
-                    <label class="flex items-center text-sm text-gray-600">
-                        <input type="checkbox" class="mr-2 accent-pink-500"> Amusement Parks
-                    </label>
-                    <label class="flex items-center text-sm text-gray-600">
-                        <input type="checkbox" class="mr-2 accent-pink-500"> Adventure
-                    </label>
-                    <label class="flex items-center text-sm text-gray-600">
-                        <input type="checkbox" class="mr-2 accent-pink-500"> Gaming Zones
-                    </label>
-                    <label class="flex items-center text-sm text-gray-600">
-                        <input type="checkbox" class="mr-2 accent-pink-500"> Tourist Attractions
-                    </label>
+            <div class="filter-card">
+                <div class="filter-title">Category <i class="fas fa-chevron-up"></i></div>
+                <div class="chip-group">
+                    <span class="filter-chip active">Amusement Parks</span>
+                    <span class="filter-chip">Adventure</span>
+                    <span class="filter-chip">Gaming</span>
+                    <span class="filter-chip">Resorts</span>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow-sm">
-                <p class="font-semibold text-gray-700 mb-3">Price</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded cursor-pointer hover:border-pink-500">Free</span>
-                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded cursor-pointer hover:border-pink-500">0 - 500</span>
+            <div class="filter-card">
+                <div class="filter-title">Venue Type <i class="fas fa-chevron-up"></i></div>
+                <div class="chip-group">
+                    <span class="filter-chip">Indoor</span>
+                    <span class="filter-chip">Outdoor</span>
+                </div>
+            </div>
+
+            <div class="filter-card">
+                <div class="filter-title">Price <i class="fas fa-chevron-up"></i></div>
+                <div class="chip-group">
+                    <span class="filter-chip">Free</span>
+                    <span class="filter-chip">0 - 500</span>
+                    <span class="filter-chip">Above 500</span>
                 </div>
             </div>
         </aside>
 
-        <section class="w-3/4">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold">Activities in Mumbai</h2>
-                <div class="text-pink-500 font-semibold cursor-pointer text-sm">View All Activities ></div>
+        <section class="content-grid">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-900">Activities in Mumbai</h2>
             </div>
 
-            <div class="grid grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer">
-                    <div class="relative">
-                        <img src="https://via.placeholder.com/400x250?text=Imagicaa+Theme+Park" alt="Activity" class="w-full">
-                        <div class="absolute top-2 right-2 bg-white/90 text-black font-bold text-[10px] px-2 py-1 rounded shadow">
-                            MUST VISIT
-                        </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all cursor-pointer group">
+                    <div class="relative h-44 overflow-hidden">
+                        <img src="https://placehold.co/600x400/4c1d95/fff?text=Imagicaa+Theme+Park" alt="Theme Park" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded shadow">BEST SELLER</div>
                     </div>
                     <div class="p-4">
-                        <h3 class="font-bold text-gray-800 truncate">Imagicaa Theme Park</h3>
+                        <h3 class="font-bold text-gray-800 text-lg truncate">Imagicaa Theme Park</h3>
                         <p class="text-gray-500 text-sm mt-1">Khopoli: Mumbai</p>
-                        <p class="text-gray-400 text-xs mt-1 uppercase tracking-tight">Amusement Parks | ₹999 onwards</p>
+                        <p class="text-[#F84464] font-bold text-xs mt-3 uppercase tracking-tight">Theme Parks | ₹999 onwards</p>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer">
-                    <img src="https://via.placeholder.com/400x250?text=Snow+World+Mumbai" alt="Activity" class="w-full">
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all cursor-pointer group">
+                    <div class="relative h-44 overflow-hidden">
+                        <img src="https://placehold.co/600x400/065f46/fff?text=Snow+World" alt="Snow World" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
                     <div class="p-4">
-                        <h3 class="font-bold text-gray-800 truncate">Snow World</h3>
+                        <h3 class="font-bold text-gray-800 text-lg truncate">Snow World Mumbai</h3>
                         <p class="text-gray-500 text-sm mt-1">Phoenix Marketcity: Kurla</p>
-                        <p class="text-gray-400 text-xs mt-1 uppercase tracking-tight">Theme Parks | ₹600 onwards</p>
+                        <p class="text-[#F84464] font-bold text-xs mt-3 uppercase tracking-tight">Indoor Parks | ₹600 onwards</p>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer">
-                    <img src="https://via.placeholder.com/400x250?text=Smaaash+Gaming" alt="Activity" class="w-full">
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all cursor-pointer group">
+                    <div class="relative h-44 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e3a8a/fff?text=Gaming+Zone" alt="Gaming" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
                     <div class="p-4">
-                        <h3 class="font-bold text-gray-800 truncate">Smaaash: Gaming & Bowling</h3>
+                        <h3 class="font-bold text-gray-800 text-lg truncate">Smaaash: Gaming & Bowling</h3>
                         <p class="text-gray-500 text-sm mt-1">Lower Parel: Mumbai</p>
-                        <p class="text-gray-400 text-xs mt-1 uppercase tracking-tight">Gaming | ₹250 onwards</p>
+                        <p class="text-[#F84464] font-bold text-xs mt-3 uppercase tracking-tight">Gaming | ₹250 onwards</p>
                     </div>
                 </div>
 
             </div>
         </section>
-    </div>
+    </main>
+
+    <footer class="mt-20 py-12 bg-[#333545] text-center text-gray-400">
+        <div class="mb-4">
+            <h2 class="text-white text-xl font-bold italic">book<span class="text-[#F84464]">my</span>show</h2>
+        </div>
+        <p class="text-xs">Copyright 2026 © Bigtree Entertainment Pvt. Ltd. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>

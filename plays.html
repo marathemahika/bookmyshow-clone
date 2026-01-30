@@ -6,93 +6,140 @@
     <title>Plays & Theater in Mumbai | BookMyShow </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[#F5F5F5]">
 
-    <nav class="bg-[#333545] text-white px-10 py-3 flex items-center justify-between shadow-md">
-        <div class="flex items-center space-x-4 w-1/2">
-            <h1 class="text-2xl font-bold italic tracking-tighter cursor-pointer">book<span class="text-pink-500">my</span>show</h1>
-            <input type="text" class="w-full bg-white text-black pl-4 pr-4 py-2 rounded-sm text-sm" placeholder="Search for Plays, Theater, and more...">
+    <nav class="nav-container px-4 lg:px-16 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-8 w-full max-w-4xl">
+            <a href="index.html">
+                <h1 class="text-3xl font-bold italic tracking-tighter cursor-pointer text-white">
+                    book<span class="text-[#F84464]">my</span>show
+                </h1>
+            </a>
+            <div class="search-wrapper hidden md:block">
+                <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input type="text" class="search-input text-black" placeholder="Search for Plays, Theater, and more...">
+            </div>
         </div>
-        <div class="flex items-center space-x-6 text-sm">
-            <span>Mumbai <i class="fas fa-chevron-down text-xs"></i></span>
-            <button class="bg-[#F84464] px-4 py-1 rounded">Sign in</button>
+        <div class="flex items-center gap-6 text-white text-sm">
+            <div class="cursor-pointer">Mumbai <i class="fas fa-chevron-down text-[10px] ml-1"></i></div>
+            <button class="btn-primary text-xs px-4 py-1.5">Sign in</button>
         </div>
     </nav>
 
-    <div class="max-w-7xl mx-auto flex px-10 py-8 gap-8">
+    <div class="bg-[#1F2533] text-gray-300 px-4 lg:px-16 py-2 flex gap-6 text-sm">
+        <a href="index.html" class="hover:text-white transition">Movies</a>
+        <a href="stream.html" class="hover:text-white transition">Stream</a>
+        <a href="events.html" class="hover:text-white transition">Events</a>
+        <a href="plays.html" class="text-white font-medium border-b-2 border-[#F84464] pb-1">Plays</a>
+        <a href="sports.html" class="hover:text-white transition">Sports</a>
+        <a href="activities.html" class="hover:text-white transition">Activities</a>
+    </div>
+
+    <main class="main-wrapper">
         
-        <aside class="w-1/4 space-y-4">
-            <h2 class="text-2xl font-bold mb-4">Filters</h2>
+        <aside class="sticky-sidebar hidden lg:block">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Filters</h2>
             
-            <div class="bg-white p-4 rounded shadow-sm">
-                <div class="flex justify-between items-center mb-4">
-                    <p class="font-semibold text-gray-700">Languages</p>
-                    <i class="fas fa-chevron-up text-xs text-gray-400"></i>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                    <span class="border border-gray-300 text-pink-500 text-xs px-3 py-1 rounded">English</span>
-                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded">Hindi</span>
-                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded">Marathi</span>
-                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded">Gujarati</span>
+            <div class="filter-card">
+                <div class="filter-title">Language <i class="fas fa-chevron-up"></i></div>
+                <div class="chip-group">
+                    <span class="filter-chip active">English</span>
+                    <span class="filter-chip">Hindi</span>
+                    <span class="filter-chip">Marathi</span>
+                    <span class="filter-chip">Gujarati</span>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow-sm">
-                <div class="flex justify-between items-center mb-4">
-                    <p class="font-semibold text-gray-700">Genres</p>
-                    <i class="fas fa-chevron-up text-xs text-gray-400"></i>
+            <div class="filter-card">
+                <div class="filter-title">Genres <i class="fas fa-chevron-up"></i></div>
+                <div class="chip-group">
+                    <span class="filter-chip">Drama</span>
+                    <span class="filter-chip">Comedy</span>
+                    <span class="filter-chip">Musical</span>
+                    <span class="filter-chip">Classic</span>
                 </div>
-                <div class="flex flex-wrap gap-2">
-                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded">Drama</span>
-                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded">Comedy</span>
-                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded">Musical</span>
-                    <span class="border border-gray-300 text-gray-600 text-xs px-3 py-1 rounded">Classic</span>
+            </div>
+
+            <div class="filter-card">
+                <div class="filter-title">Price <i class="fas fa-chevron-up"></i></div>
+                <div class="chip-group">
+                    <span class="filter-chip">0 - 500</span>
+                    <span class="filter-chip">501 - 2000</span>
+                    <span class="filter-chip">Above 2000</span>
                 </div>
             </div>
         </aside>
 
-        <section class="w-3/4">
-            <div class="flex justify-between items-end mb-6">
-                <h2 class="text-2xl font-bold">Plays in Mumbai</h2>
-                <span class="text-pink-500 text-sm font-semibold cursor-pointer">Explore All Plays ></span>
+        <section class="content-grid">
+            <div class="flex justify-between items-end mb-8">
+                <h2 class="text-2xl font-bold text-gray-900">Plays in Mumbai</h2>
+                <span class="text-[#F84464] text-sm font-semibold cursor-pointer">Explore All Plays ></span>
             </div>
 
-            <div class="grid grid-cols-3 gap-8">
+            <div class="card-grid">
                 
-                <div class="cursor-pointer group">
-                    <div class="rounded-xl overflow-hidden mb-3 relative">
-                        <img src="https://via.placeholder.com/300x450?text=Theater+Play+Poster" alt="Play" class="w-full h-auto">
-                        <div class="absolute bottom-0 w-full bg-black/50 text-white text-[10px] p-2 flex justify-between">
-                            <span>8.5/10 (2k votes)</span>
+                <div class="movie-card group">
+                    <div class="poster-wrapper">
+                        <img src="https://placehold.co/400x600/331a1a/fff?text=Hamlet+Play" alt="Hamlet">
+                        <div class="rating-overlay">
+                            <i class="fas fa-star text-[#F84464]"></i> 8.9/10 <span class="text-[10px] ml-1">4.2K Votes</span>
                         </div>
                     </div>
-                    <h3 class="font-bold text-gray-800 text-lg group-hover:text-pink-500 transition">Hamlet - A Classic Tale</h3>
-                    <p class="text-gray-600 text-sm">Prithvi Theatre: Juhu</p>
-                    <p class="text-gray-400 text-xs mt-1">Drama | English | ₹500 onwards</p>
+                    <div class="mt-3">
+                        <h3 class="font-bold text-gray-800 text-lg group-hover:text-[#F84464] transition">Hamlet: The Tragedy</h3>
+                        <p class="text-gray-500 text-sm">Prithvi Theatre: Juhu</p>
+                        <p class="text-gray-400 text-xs mt-1 font-bold">Drama | English | ₹500 onwards</p>
+                    </div>
                 </div>
 
-                <div class="cursor-pointer group">
-                    <div class="rounded-xl overflow-hidden mb-3 relative">
-                        <img src="https://via.placeholder.com/300x450?text=Comedy+Play+Poster" alt="Play" class="w-full h-auto">
+                <div class="movie-card group">
+                    <div class="poster-wrapper">
+                        <img src="https://placehold.co/400x600/1a1a33/fff?text=Marathi+Comedy" alt="Play">
+                        <div class="rating-overlay">
+                            <i class="fas fa-star text-[#F84464]"></i> 9.2/10
+                        </div>
                     </div>
-                    <h3 class="font-bold text-gray-800 text-lg group-hover:text-pink-500 transition">Honeymoon Package</h3>
-                    <p class="text-gray-600 text-sm">Tata Theatre: NCPA</p>
-                    <p class="text-gray-400 text-xs mt-1">Comedy | Marathi | ₹300 onwards</p>
+                    <div class="mt-3">
+                        <h3 class="font-bold text-gray-800 text-lg group-hover:text-[#F84464] transition">Vashu Chi Sasu</h3>
+                        <p class="text-gray-500 text-sm">Shivaji Mandir: Dadar</p>
+                        <p class="text-gray-400 text-xs mt-1 font-bold">Comedy | Marathi | ₹300 onwards</p>
+                    </div>
                 </div>
 
-                <div class="cursor-pointer group">
-                    <div class="rounded-xl overflow-hidden mb-3 relative">
-                        <img src="https://via.placeholder.com/300x450?text=Musical+Play+Poster" alt="Play" class="w-full h-auto">
+                <div class="movie-card group">
+                    <div class="poster-wrapper">
+                        <img src="https://placehold.co/400x600/1a331a/fff?text=Musical+Drama" alt="Musical">
+                        <div class="rating-overlay">
+                            <i class="fas fa-thumbs-up text-green-500"></i> 95% <span class="text-[10px] ml-1">Trending</span>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-gray-800 text-lg group-hover:text-pink-500 transition">Mughal-E-Azam</h3>
-                    <p class="text-gray-600 text-sm">NESCO: Mumbai</p>
-                    <p class="text-gray-400 text-xs mt-1">Musical | Hindi | ₹1200 onwards</p>
+                    <div class="mt-3">
+                        <h3 class="font-bold text-gray-800 text-lg group-hover:text-[#F84464] transition">Mughal-E-Azam: Musical</h3>
+                        <p class="text-gray-500 text-sm">NESCO Centre: Goregaon</p>
+                        <p class="text-gray-400 text-xs mt-1 font-bold">Musical | Hindi | ₹1200 onwards</p>
+                    </div>
+                </div>
+
+                <div class="movie-card group">
+                    <div class="poster-wrapper">
+                        <img src="https://placehold.co/400x600/333333/fff?text=English+Classic" alt="Classic">
+                    </div>
+                    <div class="mt-3">
+                        <h3 class="font-bold text-gray-800 text-lg group-hover:text-[#F84464] transition">Twelve Angry Men</h3>
+                        <p class="text-gray-500 text-sm">Tata Theatre: NCPA</p>
+                        <p class="text-gray-400 text-xs mt-1 font-bold">Drama | English | ₹800 onwards</p>
+                    </div>
                 </div>
 
             </div>
         </section>
-    </div>
+    </main>
+
+    <footer class="mt-20 py-10 bg-[#333545] text-center text-gray-400 text-xs">
+        <p>Copyright 2026 © Bigtree Entertainment Pvt. Ltd. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
