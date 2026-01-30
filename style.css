@@ -1,23 +1,140 @@
-/* Sidebar Chip Styling */
-.filter-chip {
-    border: 1px solid #e5e7eb;
-    color: #F84464;
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 4px;
-    background: white;
-    transition: all 0.2s ease;
+/* --- 1. THEME VARIABLES --- */
+:root {
+    --bms-pink: #F84464;
+    --bms-dark-blue: #333545;
+    --bms-nav-bg: #1F2533;
+    --bms-light-gray: #F5F5F5;
+    --bms-text-dark: #222222;
+    --bms-text-gray: #666666;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.filter-chip.active, .filter-chip:hover {
-    background-color: #F84464;
+/* --- 2. GLOBAL RESET & BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', 'Inter', sans-serif;
+    background-color: var(--bms-light-gray);
+    color: var(--bms-text-dark);
+    line-height: 1.5;
+}
+
+/* --- 3. CUSTOM SCROLLBAR (BMS Stream Style) --- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bms-pink);
+}
+
+/* --- 4. NAVIGATION & HEADER --- */
+nav {
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+}
+
+.nav-search-input:focus {
+    outline: none;
+    border: 1px solid var(--bms-pink);
+}
+
+/* --- 5. MOVIE CARDS & GRID --- */
+.movie-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.movie-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.movie-poster-container {
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+}
+
+.movie-rating-badge {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
     color: white;
-    border-color: #F84464;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
-/* Sticky sidebar adjustment */
+/* --- 6. SIDEBAR FILTERS --- */
 .sticky-sidebar {
     position: sticky;
-    top: 20px;
-    height: calc(100vh - 40px);
+    top: 1rem;
+    height: calc(100vh - 2rem);
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.filter-chip {
+    display: inline-block;
+    border: 1px solid #e5e7eb;
+    color: var(--bms-pink);
+    background: white;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 8px;
+}
+
+.filter-chip:hover, .filter-chip.active {
+    background: var(--bms-pink);
+    color: white;
+    border-color: var(--bms-pink);
+}
+
+/* --- 7. BUTTONS --- */
+.btn-primary {
+    background-color: var(--bms-pink);
+    color: white;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+    border: none;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+/* --- 8. UTILITIES --- */
+.text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
 }
