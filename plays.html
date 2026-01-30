@@ -25,41 +25,40 @@
 </head>
 <body>
 
-    <nav class="nav-container px-4 lg:px-16 py-3 flex items-center justify-between sticky top-0 z-50">
+    <header class="sticky top-0 z-50 shadow-lg">
+    <nav class="bg-[#333545] px-4 lg:px-16 py-3 flex items-center justify-between">
         <div class="flex items-center gap-8 flex-1">
             <h1 class="text-2xl font-bold italic text-white">book<span class="text-[#F84464]">my</span>show</h1>
             <div class="relative hidden md:block flex-1 max-w-xl">
                 <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                <input type="text" class="w-full py-2 pl-10 rounded text-sm outline-none" placeholder="Search for Plays, Musicals and Theater">
+                <input type="text" class="w-full py-2 pl-10 rounded text-sm outline-none text-black" placeholder="Search for Movies, Events, Plays, Sports and Activities">
             </div>
         </div>
         <div class="flex items-center gap-6 text-white text-sm ml-4">
             <button class="bg-[#F84464] px-4 py-1.5 rounded text-xs font-medium">Sign in</button>
-            <i class="fas fa-bars text-xl"></i>
+            <i class="fas fa-bars text-xl cursor-pointer"></i>
         </div>
     </nav>
 
-    <div class="bg-[#2B3148] text-gray-300 px-4 lg:px-16 py-2.5 sticky top-[64px] z-40 shadow-md">
-    <div class="max-w-[1240px] mx-auto flex items-center justify-between">
-        
-        <div class="flex gap-6 md:gap-8 text-sm overflow-x-auto whitespace-nowrap scrollbar-hide">
-            <a href="index.html" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#F84464]">Movies</a>
-            <a href="stream.html" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#F84464]">Stream</a>
-            <a href="events.html" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#F84464]">Events</a>
-            <a href="plays.html" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#F84464]">Plays</a>
-            <a href="sports.html" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#F84464]">Sports</a>
-            <a href="activities.html" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#F84464]">Activities</a>
+    <div class="bg-[#2B3148] text-gray-300 px-4 lg:px-16 py-2.5">
+        <div class="max-w-[1240px] mx-auto flex items-center justify-between">
+            <div class="flex gap-6 md:gap-8 text-sm overflow-x-auto whitespace-nowrap scrollbar-hide">
+                <a href="index.html" class="hover:text-white transition py-1">Movies</a>
+                <a href="stream.html" class="hover:text-white transition py-1">Stream</a>
+                <a href="events.html" class="hover:text-white transition py-1">Events</a>
+                <a href="plays.html" class="hover:text-white transition py-1">Plays</a>
+                <a href="sports.html" class="hover:text-white transition py-1">Sports</a>
+                <a href="activities.html" class="hover:text-white transition py-1">Activities</a>
+            </div>
+            <div class="hidden lg:flex gap-5 text-[11px] font-medium">
+                <a href="#" class="hover:text-white transition">ListYourShow</a>
+                <a href="#" class="hover:text-white transition">Corporates</a>
+                <a href="#" class="hover:text-white transition">Offers</a>
+                <a href="#" class="hover:text-white transition">Gift Cards</a>
+            </div>
         </div>
-
-        <div class="hidden lg:flex gap-5 text-[11px] font-medium whitespace-nowrap">
-            <a href="#" class="hover:text-white transition">ListYourShow</a>
-            <a href="#" class="hover:text-white transition">Corporates</a>
-            <a href="#" class="hover:text-white transition">Offers</a>
-            <a href="#" class="hover:text-white transition">Gift Cards</a>
-        </div>
-
     </div>
-</div>
+</header>
     <main class="max-w-[1240px] mx-auto flex flex-col lg:flex-row gap-8 py-10 px-4">
         
         <aside class="w-full lg:w-1/4">
