@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports Events in Mumbai | Tickets & Schedules | BookMyShow </title>
+    <title>Sports Events in Mumbai | BookMyShow </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -19,7 +19,7 @@
             </a>
             <div class="search-wrapper hidden md:block">
                 <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                <input type="text" class="search-input text-black" placeholder="Search for Cricket, Football, Marathons and more">
+                <input type="text" class="search-input text-black" placeholder="Search for Cricket, Football, and more">
             </div>
         </div>
         <div class="flex items-center gap-6 text-white text-sm">
@@ -28,31 +28,40 @@
         </div>
     </nav>
 
+    <div class="bg-[#1F2533] text-gray-300 px-4 lg:px-16 py-2 flex gap-6 text-sm">
+        <a href="index.html" class="hover:text-white transition">Movies</a>
+        <a href="stream.html" class="hover:text-white transition">Stream</a>
+        <a href="events.html" class="hover:text-white transition">Events</a>
+        <a href="plays.html" class="hover:text-white transition">Plays</a>
+        <a href="sports.html" class="text-white font-medium border-b-2 border-[#F84464] pb-1">Sports</a>
+        <a href="activities.html" class="hover:text-white transition">Activities</a>
+    </div>
+
     <div class="bg-white border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-10 py-4 flex justify-center gap-12 overflow-x-auto">
-            <div class="flex flex-col items-center cursor-pointer text-[#F84464] group">
+        <div class="max-w-7xl mx-auto px-10 py-4 flex justify-center gap-10 overflow-x-auto no-scrollbar">
+            <div class="flex flex-col items-center cursor-pointer text-[#F84464] group min-w-[70px]">
                 <div class="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center mb-1 group-hover:bg-pink-100 transition">
                     <i class="fas fa-cricket-bat-ball text-xl"></i>
                 </div>
-                <span class="text-[11px] font-bold uppercase">Cricket</span>
+                <span class="text-[10px] font-bold uppercase tracking-tight">Cricket</span>
             </div>
-            <div class="flex flex-col items-center cursor-pointer text-gray-500 hover:text-[#F84464] group">
+            <div class="flex flex-col items-center cursor-pointer text-gray-500 hover:text-[#F84464] group min-w-[70px]">
                 <div class="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-1 group-hover:bg-pink-50 transition">
                     <i class="fas fa-futbol text-xl"></i>
                 </div>
-                <span class="text-[11px] font-bold uppercase">Football</span>
+                <span class="text-[10px] font-bold uppercase tracking-tight">Football</span>
             </div>
-            <div class="flex flex-col items-center cursor-pointer text-gray-500 hover:text-[#F84464] group">
+            <div class="flex flex-col items-center cursor-pointer text-gray-500 hover:text-[#F84464] group min-w-[70px]">
                 <div class="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-1 group-hover:bg-pink-50 transition">
                     <i class="fas fa-running text-xl"></i>
                 </div>
-                <span class="text-[11px] font-bold uppercase">Marathon</span>
+                <span class="text-[10px] font-bold uppercase tracking-tight">Marathon</span>
             </div>
-            <div class="flex flex-col items-center cursor-pointer text-gray-500 hover:text-[#F84464] group">
+            <div class="flex flex-col items-center cursor-pointer text-gray-500 hover:text-[#F84464] group min-w-[70px]">
                 <div class="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-1 group-hover:bg-pink-50 transition">
-                    <i class="fas fa-table-tennis-paddle-ball text-xl"></i>
+                    <i class="fas fa-basketball-ball text-xl"></i>
                 </div>
-                <span class="text-[11px] font-bold uppercase">E-Sports</span>
+                <span class="text-[10px] font-bold uppercase tracking-tight">Basketball</span>
             </div>
         </div>
     </div>
@@ -67,7 +76,7 @@
                 <div class="chip-group">
                     <span class="filter-chip">Free</span>
                     <span class="filter-chip active">0 - 500</span>
-                    <span class="filter-chip">501 - 2000</span>
+                    <span class="filter-chip">Above 2000</span>
                 </div>
             </div>
 
@@ -76,7 +85,6 @@
                 <div class="chip-group">
                     <span class="filter-chip">Wankhede Stadium</span>
                     <span class="filter-chip">DY Patil Stadium</span>
-                    <span class="filter-chip">Jio World Garden</span>
                 </div>
             </div>
         </aside>
@@ -87,35 +95,24 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer group">
                     <div class="relative h-44 overflow-hidden">
-                        <img src="https://placehold.co/600x300/1a1a1a/fff?text=T20+Cricket+Match" alt="Cricket" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <img src="https://placehold.co/600x300/1a1a1a/fff?text=Cricket+Match" alt="Cricket" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute top-0 right-0 bg-[#F84464] text-white text-[10px] font-bold px-3 py-1">FAST FILLING</div>
                     </div>
                     <div class="p-4 border-t border-gray-100">
-                        <h3 class="font-bold text-gray-800 text-lg">Mumbai Indians vs RCB</h3>
-                        <p class="text-gray-500 text-sm mt-1"><i class="fas fa-map-marker-alt mr-1"></i> Wankhede Stadium: Mumbai</p>
-                        <p class="text-[#F84464] font-bold text-xs mt-3 uppercase tracking-wider">Cricket | ₹1500 onwards</p>
+                        <h3 class="font-bold text-gray-800 text-lg">T20: MI vs CSK</h3>
+                        <p class="text-gray-500 text-sm mt-1">Wankhede Stadium: Mumbai</p>
+                        <p class="text-[#F84464] font-bold text-xs mt-3 uppercase">Cricket | ₹1500 onwards</p>
                     </div>
                 </div>
 
                 <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer group">
                     <div class="relative h-44 overflow-hidden">
-                        <img src="https://placehold.co/600x300/222/fff?text=Mumbai+Half+Marathon" alt="Marathon" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <img src="https://placehold.co/600x300/222/fff?text=Football+Match" alt="Football" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
                     <div class="p-4 border-t border-gray-100">
-                        <h3 class="font-bold text-gray-800 text-lg">Mumbai Half Marathon 2026</h3>
-                        <p class="text-gray-500 text-sm mt-1"><i class="fas fa-map-marker-alt mr-1"></i> Bandra-Worli Sea Link</p>
-                        <p class="text-[#F84464] font-bold text-xs mt-3 uppercase tracking-wider">Running | ₹800 onwards</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer group">
-                    <div class="relative h-44 overflow-hidden">
-                        <img src="https://placehold.co/600x300/333/fff?text=Pro+Kabaddi+League" alt="Kabaddi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="p-4 border-t border-gray-100">
-                        <h3 class="font-bold text-gray-800 text-lg">Pro Kabaddi: Mumbai Leg</h3>
-                        <p class="text-gray-500 text-sm mt-1"><i class="fas fa-map-marker-alt mr-1"></i> NSCI Dome: Worli</p>
-                        <p class="text-[#F84464] font-bold text-xs mt-3 uppercase tracking-wider">Kabaddi | ₹400 onwards</p>
+                        <h3 class="font-bold text-gray-800 text-lg">ISL: Mumbai City FC</h3>
+                        <p class="text-gray-500 text-sm mt-1">Mumbai Football Arena</p>
+                        <p class="text-[#F84464] font-bold text-xs mt-3 uppercase">Football | ₹499 onwards</p>
                     </div>
                 </div>
             </div>
