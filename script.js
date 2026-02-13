@@ -1,47 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- FEATURE 1: Theme Toggle & FEATURE 4: Local Storage ---
+    // --- FEATURE 1: Dynamic Content Change (Theme Toggle) ---
+    // --- FEATURE 4: Local Storage (Bonus/Optional) ---
     const themeBtn = document.getElementById('themeToggle');
     const body = document.body;
-    const movieTitles = document.querySelectorAll('.movie-card h3');
-    const filterHeaders = document.querySelectorAll('aside h2, aside span');
 
-    // Function to apply Dark Mode styles
-    function enableDarkMode() {
-        body.style.backgroundColor = '#1a1a1a';
-        body.style.color = '#ffffff';
+    // Helper function to update all text elements
+    function updateTextColors(color) {
+        // Change body-wide text 
+        body.style.color = color;
         
-        // Ensure specific UI text elements remain visible 
-        movieTitles.forEach(title => title.style.color = '#ffffff');
-        filterHeaders.forEach(header => header.style.color = '#ffffff');
-        
-        themeBtn.textContent = 'Light Mode';
-        localStorage.setItem('theme', 'dark'); // [cite: 43]
-    }
-
-    // Function to apply Light Mode styles (Initial State)
-    function disableDarkMode() {
-        body.style.backgroundColor = '#f5f5f5';
-        body.style.color = '#333333';
-        
-        movieTitles.forEach(title => title.style.color = '#1f2937'); // Dark gray/black
-        filterHeaders.forEach(header => {
-            // Check if it's the "Languages" red text or standard text
-            if (!header.classList.contains('text-[#F84464]')) {
-                header.style.color = '#1f2937';
+        // Specifically target headings and labels that have dark Tailwind classes 
+        const allTextElements = document.querySelectorAll('h2, h3, p, span, a');
+        allTextElements.forEach(el => {
+            // We skip the red "BookMyShow" branding and specific red buttons
+            if (!el.classList.contains('text-[#F84464]')) {
+                el.style.color = color;
             }
         });
-
-        themeBtn.textContent = 'Dark Mode';
-        localStorage.setItem('theme', 'light'); // [cite: 43]
     }
 
-    // Initialize: Default to Light unless "dark" is specifically saved [cite: 43]
+    function enableDarkMode() {
+        body.style.backgroundColor = '#121212'; // Deep dark background
+        updateTextColors('#ffffff'); // Make all text white 
+        themeBtn.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark'); // 
+    }
+
+    function disableDarkMode() {
+        body.style.backgroundColor = '#f5f5f5'; // Light background
+        updateTextColors('#000000'); // Make all text black 
+        themeBtn.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light'); // 
+    }
+
+    // Initialize: Must be initially light [cite: 4]
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         enableDarkMode();
     } else {
-        disableDarkMode();
+        disableDarkMode(); // Defaults to light on first load
     }
 
     themeBtn.addEventListener('click', () => {
@@ -53,13 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- FEATURE 2: Button Click Interaction [cite: 10, 11] ---
+    // --- FEATURE 2: Button Click Interaction ---
     const signInBtn = document.querySelector('button.bg-\\[\\#F84464\\]');
     signInBtn.addEventListener('click', () => {
-        alert('Welcome to BookMyShow! Please sign in to book your tickets.');
+        alert('Welcome! Sign-in is currently under maintenance.'); // 
     });
 
-    // --- FEATURE 3: Image Gallery / Slider [cite: 39, 40] ---
+    // --- FEATURE 3: Image Gallery / Slider (Basic) ---
     const bannerImg = document.querySelector('section img');
     const prevBtn = document.querySelector('.fa-chevron-left').parentElement;
     const nextBtn = document.querySelector('.fa-chevron-right').parentElement;
@@ -72,11 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nextBtn.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % images.length;
-        bannerImg.src = images[currentIndex];
+        bannerImg.src = images[currentIndex]; // 
     });
 
     prevBtn.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
-        bannerImg.src = images[currentIndex];
+        bannerImg.src = images[currentIndex]; // 
     });
 });
