@@ -1,43 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- FEATURE 1: Theme Toggle (Dynamic Content Change) ---
-    // --- FEATURE 4: Local Storage (Bonus) ---
+    // --- FEATURE 1: Theme Toggle & FEATURE 4: Local Storage ---
     const themeBtn = document.getElementById('themeToggle');
     const body = document.body;
-    
-    // Select the specific headers and text elements to adjust
-    const mainHeader = document.querySelector('section.flex-1 h2'); // "Movies in Mumbai"
     const movieTitles = document.querySelectorAll('.movie-card h3');
     const filterHeaders = document.querySelectorAll('aside h2, aside span');
 
+    // Function to apply Dark Mode styles
     function enableDarkMode() {
-        body.style.backgroundColor = '#121212';
+        body.style.backgroundColor = '#1a1a1a';
         body.style.color = '#ffffff';
         
-        // Fix for "Movies in Mumbai" visibility
-        if (mainHeader) mainHeader.style.color = '#ffffff';
-        
-        // Update movie titles and filter labels
+        // Ensure specific UI text elements remain visible 
         movieTitles.forEach(title => title.style.color = '#ffffff');
-        filterHeaders.forEach(header => {
-            if (!header.classList.contains('text-[#F84464]')) {
-                header.style.color = '#e5e7eb';
-            }
-        });
+        filterHeaders.forEach(header => header.style.color = '#ffffff');
         
         themeBtn.textContent = 'Light Mode';
         localStorage.setItem('theme', 'dark'); // [cite: 43]
     }
 
+    // Function to apply Light Mode styles (Initial State)
     function disableDarkMode() {
         body.style.backgroundColor = '#f5f5f5';
         body.style.color = '#333333';
         
-        // Restore "Movies in Mumbai" to dark text for light bg
-        if (mainHeader) mainHeader.style.color = '#1f2937'; 
-        
-        movieTitles.forEach(title => title.style.color = '#1f2937');
+        movieTitles.forEach(title => title.style.color = '#1f2937'); // Dark gray/black
         filterHeaders.forEach(header => {
+            // Check if it's the "Languages" red text or standard text
             if (!header.classList.contains('text-[#F84464]')) {
                 header.style.color = '#1f2937';
             }
@@ -47,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', 'light'); // [cite: 43]
     }
 
-    // Initialize: Starts Light by default unless 'dark' is saved
+    // Initialize: Default to Light unless "dark" is specifically saved [cite: 43]
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         enableDarkMode();
@@ -64,13 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- FEATURE 2: Button Click Interaction ---
+    // --- FEATURE 2: Button Click Interaction [cite: 10, 11] ---
     const signInBtn = document.querySelector('button.bg-\\[\\#F84464\\]');
     signInBtn.addEventListener('click', () => {
-        alert('Sign-in functionality coming soon!'); // [cite: 11]
+        alert('Welcome to BookMyShow! Please sign in to book your tickets.');
     });
 
-    // --- FEATURE 3: Image Gallery / Slider ---
+    // --- FEATURE 3: Image Gallery / Slider [cite: 39, 40] ---
     const bannerImg = document.querySelector('section img');
     const prevBtn = document.querySelector('.fa-chevron-left').parentElement;
     const nextBtn = document.querySelector('.fa-chevron-right').parentElement;
@@ -83,11 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nextBtn.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % images.length;
-        bannerImg.src = images[currentIndex]; // [cite: 40]
+        bannerImg.src = images[currentIndex];
     });
 
     prevBtn.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
-        bannerImg.src = images[currentIndex]; // [cite: 40]
+        bannerImg.src = images[currentIndex];
     });
 });
