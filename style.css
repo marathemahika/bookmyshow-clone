@@ -165,22 +165,14 @@ footer {
     text-align: center;
 }
 
-/* --- Global Dark Mode --- */
 body.dark-mode {
-    background-color: #121212 !important;
+    background: #121212 !important;
+}
+
+body.dark-mode * {
     color: #ffffff !important;
 }
 
 body.dark-mode .bg-white {
-    background-color: #1f1f1f !important;
-}
-
-body.dark-mode .text-gray-800,
-body.dark-mode .text-gray-500,
-body.dark-mode .text-gray-300 {
-    color: #cccccc !important;
-}
-
-body.dark-mode footer {
-    background-color: #1a1a1a !important;
+    background: #1f1f1f !important;
 }
