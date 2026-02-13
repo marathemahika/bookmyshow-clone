@@ -1,63 +1,57 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- FEATURE 1: Dynamic Content Change (Theme Toggle) ---
-    // --- FEATURE 4: Local Storage (Bonus/Optional) ---
+    // --- FEATURE 1: Dynamic Content Change (Theme Toggle) --- [cite: 21, 25]
+    // --- FEATURE 4: Local Storage (Bonus) --- [cite: 42, 43]
     const themeBtn = document.getElementById('themeToggle');
     const body = document.body;
 
-    // Helper function to update all text elements
-    function updateTextColors(color) {
-        // Change body-wide text 
-        body.style.color = color;
+    function applyTheme(mode) {
+        const allTextElements = document.querySelectorAll('h2, h3, p, .filter-chip');
+        const navbar = document.querySelector('header');
         
-        // Specifically target headings and labels that have dark Tailwind classes 
-        const allTextElements = document.querySelectorAll('h2, h3, p, span, a');
-        allTextElements.forEach(el => {
-            // We skip the red "BookMyShow" branding and specific red buttons
-            if (!el.classList.contains('text-[#F84464]')) {
-                el.style.color = color;
-            }
-        });
+        if (mode === 'dark') {
+            body.style.backgroundColor = '#121212';
+            // Change main content text to white [cite: 22]
+            allTextElements.forEach(el => {
+                if (!navbar.contains(el)) {
+                    el.style.color = '#ffffff';
+                }
+            });
+            themeBtn.textContent = 'Light Mode';
+            localStorage.setItem('theme', 'dark'); [cite: 43]
+        } else {
+            body.style.backgroundColor = '#f5f5f5';
+            // Change main content text to black [cite: 22]
+            allTextElements.forEach(el => {
+                if (!navbar.contains(el)) {
+                    el.style.color = '#000000';
+                }
+            });
+            themeBtn.textContent = 'Dark Mode';
+            localStorage.setItem('theme', 'light'); [cite: 43]
+        }
+        
+        // Ensure Navbar text ALWAYS stays white 
+        const navLinks = document.querySelectorAll('nav a, nav h1, nav button, nav i');
+        navLinks.forEach(link => link.style.color = '#ffffff');
     }
 
-    function enableDarkMode() {
-        body.style.backgroundColor = '#121212'; // Deep dark background
-        updateTextColors('#ffffff'); // Make all text white 
-        themeBtn.textContent = 'Light Mode';
-        localStorage.setItem('theme', 'dark'); // 
-    }
-
-    function disableDarkMode() {
-        body.style.backgroundColor = '#f5f5f5'; // Light background
-        updateTextColors('#000000'); // Make all text black 
-        themeBtn.textContent = 'Dark Mode';
-        localStorage.setItem('theme', 'light'); // 
-    }
-
-    // Initialize: Must be initially light [cite: 4]
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        enableDarkMode();
-    } else {
-        disableDarkMode(); // Defaults to light on first load
-    }
+    // Initialize: Set to Light Mode initially 
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
 
     themeBtn.addEventListener('click', () => {
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark') {
-            disableDarkMode();
-        } else {
-            enableDarkMode();
-        }
+        const newTheme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
     });
 
-    // --- FEATURE 2: Button Click Interaction ---
-    const signInBtn = document.querySelector('button.bg-\\[\\#F84464\\]');
+    // --- FEATURE 2: Button Click Interaction --- [cite: 10, 11]
+    const signInBtn = document.querySelector('nav button');
     signInBtn.addEventListener('click', () => {
-        alert('Welcome! Sign-in is currently under maintenance.'); // 
+        alert('Sign-in functionality coming soon!'); [cite: 11]
     });
 
-    // --- FEATURE 3: Image Gallery / Slider (Basic) ---
+    // --- FEATURE 3: Image Gallery / Slider --- [cite: 39, 40]
     const bannerImg = document.querySelector('section img');
     const prevBtn = document.querySelector('.fa-chevron-left').parentElement;
     const nextBtn = document.querySelector('.fa-chevron-right').parentElement;
@@ -70,11 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nextBtn.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % images.length;
-        bannerImg.src = images[currentIndex]; // 
+        bannerImg.src = images[currentIndex]; [cite: 40]
     });
 
     prevBtn.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
-        bannerImg.src = images[currentIndex]; // 
+        bannerImg.src = images[currentIndex]; [cite: 40]
     });
 });
