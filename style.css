@@ -194,3 +194,12 @@ body.dark-mode .bg-white * {
 body.dark-mode .card, body.dark-mode .container-box {
     border: 1px solid #333;
 }
+
+/* Movies Heading Color Control */
+#moviesHeading {
+    color: #000000;   /* Black in Light Mode */
+}
+
+body.dark-mode #moviesHeading {
+    color: #ffffff;   /* White in Dark Mode */
+}
