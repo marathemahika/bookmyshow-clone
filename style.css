@@ -164,3 +164,34 @@ footer {
     padding: 40px 0;
     text-align: center;
 }
+
+/* --- Global Dark Mode --- */
+.dark-mode {
+    background-color: var(--bg-dark) !important;
+    color: #ffffff !important;
+}
+
+.dark-mode .nav-container {
+    background-color: #1c1c1c !important;
+}
+
+.dark-mode .sub-nav {
+    background-color: #1a1f2e !important;
+}
+
+.dark-mode .movie-card,
+.dark-mode .sport-card,
+.dark-mode .stream-card {
+    background-color: #1f1f1f !important;
+    color: #ffffff !important;
+}
+
+.dark-mode .filter-chip {
+    background-color: #2a2a2a;
+    border-color: #444;
+    color: #ddd;
+}
+
+.dark-mode footer {
+    background-color: #1a1a1a !important;
+}
