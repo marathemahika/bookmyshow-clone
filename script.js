@@ -6,14 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
 
     function applyTheme(mode) {
-        // Target text elements ONLY in the main content and aside, avoiding the navbar
+        // Target text elements ONLY in the main content and aside
         const mainContentText = document.querySelectorAll('main h2, main h3, main p, aside h2, aside span');
         
         if (mode === 'dark') {
             body.style.backgroundColor = '#121212';
-            // Change main content text to white for visibility
+            // Change main content text to white
             mainContentText.forEach(el => {
-                // Skip elements that have the brand-specific red color
                 if (!el.classList.contains('text-[#F84464]')) {
                     el.style.color = '#ffffff';
                 }
@@ -25,23 +24,21 @@ document.addEventListener('DOMContentLoaded', () => {
             // Change main content text to black for light mode
             mainContentText.forEach(el => {
                 if (!el.classList.contains('text-[#F84464]')) {
-                    el.style.color = '#1f2937'; // Standard dark gray/black
+                    el.style.color = '#1f2937'; 
                 }
             });
             themeBtn.textContent = 'Dark Mode';
             localStorage.setItem('theme', 'light'); [cite: 43]
         }
         
-        // Ensure the Navbar text remains white regardless of theme
-        const navbarText = document.querySelectorAll('nav h1, nav input, nav button, nav a, nav i');
+        // --- FIX: Force Navbar text to ALWAYS stay white ---
+        const navbarText = document.querySelectorAll('nav h1, nav button, nav a, nav i');
         navbarText.forEach(el => {
-            if (el.tagName !== 'INPUT') { // Keep input text readable
-                el.style.color = '#ffffff';
-            }
+            el.style.color = '#ffffff';
         });
     }
 
-    // Initialize: Force Light Mode as default 
+    // Initialize: Set to Light Mode initially 
     const savedTheme = localStorage.getItem('theme') || 'light';
     applyTheme(savedTheme);
 
@@ -57,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Welcome! Sign-in is currently unavailable.'); [cite: 11]
     });
 
-    // --- FEATURE 3: Image Gallery / Slider ---
+    // --- FEATURE 3: Image Gallery / Slider (Basic) ---
     const bannerImg = document.querySelector('section img');
     const prevBtn = document.querySelector('.fa-chevron-left').parentElement;
     const nextBtn = document.querySelector('.fa-chevron-right').parentElement;
