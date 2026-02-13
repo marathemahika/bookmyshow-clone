@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- FEATURE 1: Dynamic Content Change (Theme Toggle) & FEATURE 4: Local Storage (Bonus) ---
+    // --- FEATURE 1: Theme Toggle & FEATURE 4: Local Storage (Bonus) ---
     const themeBtn = document.getElementById('themeToggle');
     const body = document.body;
 
@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (mode === 'dark') {
             body.classList.add('dark-mode');
+            body.style.backgroundColor = '#121212';
             themeBtn.textContent = 'Light Mode';
             
             // Fix: Force "Movies in Mumbai" to WHITE in Dark Mode
@@ -24,9 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     el.style.setProperty('color', '#ffffff', 'important');
                 }
             });
-            localStorage.setItem('theme', 'dark'); [cite: 42, 43]
+            localStorage.setItem('theme', 'dark');
         } else {
             body.classList.remove('dark-mode');
+            body.style.backgroundColor = '#f5f5f5';
             themeBtn.textContent = 'Dark Mode';
             
             // Fix: Restore "Movies in Mumbai" to BLACK in Light Mode
@@ -40,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     el.style.setProperty('color', '#1f2937', 'important');
                 }
             });
-            localStorage.setItem('theme', 'light'); [cite: 42, 43]
+            localStorage.setItem('theme', 'light');
         }
 
         // --- MANDATORY FIXES: Branding & Navbar ---
@@ -69,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- FEATURE 2: Button Click Interaction ---
     const signInBtn = document.querySelector('nav button.bg-\\[\\#F84464\\]');
     signInBtn?.addEventListener('click', () => {
-        alert('Welcome! Sign-in is currently under maintenance.'); [cite: 10, 11]
+        alert('Welcome! Sign-in is currently under maintenance.');
     });
 
     // --- FEATURE 3: Image Gallery / Slider ---
@@ -83,6 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nextBtn?.addEventListener('click', () => {
         index = (index + 1) % images.length;
-        bannerImg.src = images[index]; [cite: 39, 40]
+        bannerImg.src = images[index];
     });
 });
