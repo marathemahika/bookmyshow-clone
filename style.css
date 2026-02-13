@@ -172,18 +172,25 @@ body {
     transition: background 0.3s, color 0.3s; /* Makes the switch smooth */
 }
 
-/* Dark Mode Styles */
+/* 1. The Main Background */
 body.dark-mode {
-    background: #121212;
-    color: #ffffff;
+    background: #121212 !important;
+    color: #ffffff !important;
 }
 
-/* Targeted overrides for specific classes */
+/* 2. The White Boxes (Tags/Buttons) */
 body.dark-mode .bg-white {
-    background: #1f1f1f !important;
+    background: #ffffff !important; /* Keep them white as seen in your image */
 }
 
-/* Ensuring all text inherits the white color in dark mode */
-body.dark-mode * {
-    color: inherit; 
+/* 3. The Fix: Text inside the white boxes must be dark */
+body.dark-mode .bg-white, 
+body.dark-mode .bg-white * {
+    color: #121212 !important; 
+}
+
+/* 4. The Card Borders (Optional) */
+/* In your image, the cards have a thin white stroke */
+body.dark-mode .card, body.dark-mode .container-box {
+    border: 1px solid #333;
 }
