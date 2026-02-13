@@ -1,19 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- FEATURE 1: Dynamic Content Change (Theme Toggle) --- [cite: 21, 25]
-    // --- FEATURE 4: Local Storage (Bonus) --- [cite: 42, 43]
+    // --- FEATURE 1: Dynamic Content Change (Theme Toggle) ---
+    // --- FEATURE 4: Local Storage (Bonus) ---
     const themeBtn = document.getElementById('themeToggle');
     const body = document.body;
 
     function applyTheme(mode) {
-        const allTextElements = document.querySelectorAll('h2, h3, p, .filter-chip');
-        const navbar = document.querySelector('header');
+        // Target text elements ONLY in the main content and aside, avoiding the navbar
+        const mainContentText = document.querySelectorAll('main h2, main h3, main p, aside h2, aside span');
         
         if (mode === 'dark') {
             body.style.backgroundColor = '#121212';
-            // Change main content text to white [cite: 22]
-            allTextElements.forEach(el => {
-                if (!navbar.contains(el)) {
+            // Change main content text to white for visibility
+            mainContentText.forEach(el => {
+                // Skip elements that have the brand-specific red color
+                if (!el.classList.contains('text-[#F84464]')) {
                     el.style.color = '#ffffff';
                 }
             });
@@ -21,37 +22,42 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('theme', 'dark'); [cite: 43]
         } else {
             body.style.backgroundColor = '#f5f5f5';
-            // Change main content text to black [cite: 22]
-            allTextElements.forEach(el => {
-                if (!navbar.contains(el)) {
-                    el.style.color = '#000000';
+            // Change main content text to black for light mode
+            mainContentText.forEach(el => {
+                if (!el.classList.contains('text-[#F84464]')) {
+                    el.style.color = '#1f2937'; // Standard dark gray/black
                 }
             });
             themeBtn.textContent = 'Dark Mode';
             localStorage.setItem('theme', 'light'); [cite: 43]
         }
         
-        // Ensure Navbar text ALWAYS stays white 
-        const navLinks = document.querySelectorAll('nav a, nav h1, nav button, nav i');
-        navLinks.forEach(link => link.style.color = '#ffffff');
+        // Ensure the Navbar text remains white regardless of theme
+        const navbarText = document.querySelectorAll('nav h1, nav input, nav button, nav a, nav i');
+        navbarText.forEach(el => {
+            if (el.tagName !== 'INPUT') { // Keep input text readable
+                el.style.color = '#ffffff';
+            }
+        });
     }
 
-    // Initialize: Set to Light Mode initially 
+    // Initialize: Force Light Mode as default 
     const savedTheme = localStorage.getItem('theme') || 'light';
     applyTheme(savedTheme);
 
     themeBtn.addEventListener('click', () => {
-        const newTheme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+        const currentTheme = localStorage.getItem('theme');
+        const newTheme = (currentTheme === 'dark') ? 'light' : 'dark';
         applyTheme(newTheme);
     });
 
-    // --- FEATURE 2: Button Click Interaction --- [cite: 10, 11]
+    // --- FEATURE 2: Button Click Interaction ---
     const signInBtn = document.querySelector('nav button');
     signInBtn.addEventListener('click', () => {
-        alert('Sign-in functionality coming soon!'); [cite: 11]
+        alert('Welcome! Sign-in is currently unavailable.'); [cite: 11]
     });
 
-    // --- FEATURE 3: Image Gallery / Slider --- [cite: 39, 40]
+    // --- FEATURE 3: Image Gallery / Slider ---
     const bannerImg = document.querySelector('section img');
     const prevBtn = document.querySelector('.fa-chevron-left').parentElement;
     const nextBtn = document.querySelector('.fa-chevron-right').parentElement;
