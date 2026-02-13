@@ -165,14 +165,25 @@ footer {
     text-align: center;
 }
 
+/* Default Light Mode Styles */
+body {
+    background: #ffffff;
+    color: #000000;
+    transition: background 0.3s, color 0.3s; /* Makes the switch smooth */
+}
+
+/* Dark Mode Styles */
 body.dark-mode {
-    background: #121212 !important;
+    background: #121212;
+    color: #ffffff;
 }
 
-body.dark-mode * {
-    color: #ffffff !important;
-}
-
+/* Targeted overrides for specific classes */
 body.dark-mode .bg-white {
     background: #1f1f1f !important;
+}
+
+/* Ensuring all text inherits the white color in dark mode */
+body.dark-mode * {
+    color: inherit; 
 }

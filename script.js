@@ -1,7 +1,11 @@
 console.log("JS Loaded");
 document.addEventListener("DOMContentLoaded", function () {
 
-    const toggle = document.getElementById("themeToggle");
+    const btn = document.getElementById('dark-mode-toggle');
+
+btn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
 
     if (toggle) {
         toggle.addEventListener("click", function () {
