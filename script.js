@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- FEATURE 1: Dynamic Content Change (Theme Toggle) [cite: 21, 25] ---
-    // --- FEATURE 4: Local Storage (Bonus) [cite: 42, 43] ---
+    // --- FEATURE 1: Dynamic Content Change (Theme Toggle) & FEATURE 4: Local Storage (Bonus) ---
     const themeBtn = document.getElementById('themeToggle');
     const body = document.body;
 
     function applyTheme(mode) {
-        // Specifically target the heading to fix visibility in dark mode
+        // Target specifically the "Movies in Mumbai" heading
         const moviesHeading = document.querySelector('main h2');
         const contentText = document.querySelectorAll('main h3, main p, aside h2, aside span');
 
@@ -14,40 +13,42 @@ document.addEventListener('DOMContentLoaded', () => {
             body.classList.add('dark-mode');
             themeBtn.textContent = 'Light Mode';
             
-            // Fix: Explicitly change "Movies in Mumbai" to WHITE in Dark Mode
+            // Fix: Force "Movies in Mumbai" to WHITE in Dark Mode
             if (moviesHeading) {
                 moviesHeading.style.setProperty('color', '#ffffff', 'important');
             }
             
-            // Toggle other content text to white for general visibility
+            // Toggle other content text to white for visibility
             contentText.forEach(el => {
                 if (!el.classList.contains('text-[#F84464]')) {
                     el.style.setProperty('color', '#ffffff', 'important');
                 }
             });
-            localStorage.setItem('theme', 'dark'); [cite: 43]
+            localStorage.setItem('theme', 'dark'); [cite: 42, 43]
         } else {
             body.classList.remove('dark-mode');
             themeBtn.textContent = 'Dark Mode';
             
-            // Fix: Restore "Movies in Mumbai" to dark gray in Light Mode
+            // Fix: Restore "Movies in Mumbai" to BLACK in Light Mode
             if (moviesHeading) {
-                moviesHeading.style.setProperty('color', '#1f2937', 'important');
+                moviesHeading.style.setProperty('color', '#000000', 'important');
             }
             
-            // Toggle other content text back to dark gray
+            // Toggle other content text to dark gray
             contentText.forEach(el => {
                 if (!el.classList.contains('text-[#F84464]')) {
                     el.style.setProperty('color', '#1f2937', 'important');
                 }
             });
-            localStorage.setItem('theme', 'light'); [cite: 43]
+            localStorage.setItem('theme', 'light'); [cite: 42, 43]
         }
 
-        // Maintain branding: "my" in logo remains red; navbar text remains white
+        // --- MANDATORY FIXES: Branding & Navbar ---
+        // 1. Ensure "my" in logo is ALWAYS red
         const logoMy = document.querySelector('nav h1 span');
         if (logoMy) logoMy.style.setProperty('color', '#F84464', 'important');
 
+        // 2. Ensure Navbar text remains WHITE in both modes
         const navItems = document.querySelectorAll('nav a, nav button, nav i, nav h1');
         navItems.forEach(item => {
             if (!item.classList.contains('text-[#F84464]') && item.tagName !== 'SPAN') {
@@ -56,8 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initial state: Default to light mode per project requirements 
-    const savedTheme = localStorage.getItem('theme') || 'light'; [cite: 43]
+    // Initialize: Set theme based on Local Storage or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
     applyTheme(savedTheme);
 
     themeBtn.addEventListener('click', () => {
@@ -65,13 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTheme(currentMode);
     });
 
-    // --- FEATURE 2: Button Click Interaction [cite: 10, 11] ---
+    // --- FEATURE 2: Button Click Interaction ---
     const signInBtn = document.querySelector('nav button.bg-\\[\\#F84464\\]');
     signInBtn?.addEventListener('click', () => {
-        alert('Welcome! Sign-in is currently under maintenance.'); [cite: 11]
+        alert('Welcome! Sign-in is currently under maintenance.'); [cite: 10, 11]
     });
 
-    // --- FEATURE 3: Image Gallery / Slider [cite: 39, 40] ---
+    // --- FEATURE 3: Image Gallery / Slider ---
     const bannerImg = document.querySelector('section img');
     const nextBtn = document.querySelector('.fa-chevron-right')?.parentElement;
     const images = [
@@ -82,6 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nextBtn?.addEventListener('click', () => {
         index = (index + 1) % images.length;
-        bannerImg.src = images[index]; [cite: 40]
+        bannerImg.src = images[index]; [cite: 39, 40]
     });
 });
