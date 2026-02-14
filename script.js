@@ -173,77 +173,78 @@ if (themeBtn) {
 });
 
 /* =========================================
-   MOVIE INFO MODAL (ALL CARDS)
+   WORKING MOVIE INFO MODAL
 ========================================= */
 
-const allCards = document.querySelectorAll('.movie-card, .stream-card');
+const cards = document.querySelectorAll('.movie-card, .stream-card');
 
-// Create modal dynamically
-const modal = document.createElement("div");
-modal.id = "movieModal";
-modal.style.position = "fixed";
-modal.style.top = "0";
-modal.style.left = "0";
-modal.style.width = "100%";
-modal.style.height = "100%";
-modal.style.backgroundColor = "rgba(0,0,0,0.8)";
-modal.style.display = "none";
-modal.style.justifyContent = "center";
-modal.style.alignItems = "center";
-modal.style.zIndex = "9999";
+if (cards.length > 0) {
 
-modal.innerHTML = `
-    <div style="
-        background: #1f1f1f;
-        color: white;
-        padding: 30px;
-        border-radius: 10px;
-        width: 90%;
-        max-width: 500px;
-        text-align: center;
-        position: relative;
-    ">
-        <span id="closeModal" style="
-            position:absolute;
-            top:10px;
-            right:15px;
-            cursor:pointer;
-            font-size:20px;
-        ">&times;</span>
+    // Create modal once
+    const modal = document.createElement("div");
+    modal.id = "movieModal";
 
-        <h2 id="modalTitle" style="font-size:22px; font-weight:bold;"></h2>
-        <p id="modalInfo" style="margin-top:10px; font-size:14px;"></p>
-    </div>
-`;
-
-document.body.appendChild(modal);
-
-const modalTitle = document.getElementById("modalTitle");
-const modalInfo = document.getElementById("modalInfo");
-const closeModal = document.getElementById("closeModal");
-
-// Open modal on card click
-allCards.forEach(card => {
-    card.addEventListener("click", () => {
-
-        const title = card.querySelector("h3, h4")?.textContent || "Movie Title";
-        const info = card.querySelector("p")?.textContent || "No additional info available.";
-
-        modalTitle.textContent = title;
-        modalInfo.textContent = info;
-
-        modal.style.display = "flex";
-    });
-});
-
-// Close modal
-closeModal.addEventListener("click", () => {
+    modal.style.position = "fixed";
+    modal.style.top = "0";
+    modal.style.left = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.background = "rgba(0,0,0,0.8)";
     modal.style.display = "none";
-});
+    modal.style.justifyContent = "center";
+    modal.style.alignItems = "center";
+    modal.style.zIndex = "9999";
 
-// Close when clicking outside content
-modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
+    modal.innerHTML = `
+        <div style="
+            background:#1f1f1f;
+            padding:30px;
+            border-radius:10px;
+            width:90%;
+            max-width:500px;
+            color:white;
+            text-align:center;
+            position:relative;
+        ">
+            <span id="closeModal" style="
+                position:absolute;
+                right:15px;
+                top:10px;
+                font-size:22px;
+                cursor:pointer;
+            ">&times;</span>
+
+            <h2 id="modalTitle"></h2>
+            <p id="modalInfo" style="margin-top:10px;"></p>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    const modalTitle = modal.querySelector("#modalTitle");
+    const modalInfo = modal.querySelector("#modalInfo");
+    const closeModal = modal.querySelector("#closeModal");
+
+    cards.forEach(card => {
+        card.addEventListener("click", function () {
+
+            const titleElement = this.querySelector("h3, h4");
+            const infoElement = this.querySelector("p");
+
+            modalTitle.textContent = titleElement ? titleElement.textContent : "Movie";
+            modalInfo.textContent = infoElement ? infoElement.textContent : "Details unavailable.";
+
+            modal.style.display = "flex";
+        });
+    });
+
+    closeModal.addEventListener("click", () => {
         modal.style.display = "none";
-    }
-});
+    });
+
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+}

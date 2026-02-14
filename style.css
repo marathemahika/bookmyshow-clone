@@ -211,10 +211,12 @@ body.dark-mode #moviesHeading {
 .movie-card,
 .stream-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .movie-card:hover,
 .stream-card:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.4);
 }
+
