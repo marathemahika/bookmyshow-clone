@@ -147,16 +147,7 @@ if (themeBtn) {
     }
 
 
-    /* =========================================
-       STREAM PLAY INTERACTION
-    ========================================= */
-    const playOverlays = document.querySelectorAll('.play-overlay');
-
-    playOverlays.forEach(overlay => {
-        overlay.addEventListener('click', () => {
-            alert("Streaming preview coming soon.");
-        });
-    });
+    
 
 
     /* =========================================
