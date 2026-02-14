@@ -223,4 +223,27 @@ body.dark-mode #moviesHeading {
     box-shadow: 0 25px 40px rgba(0, 0, 0, 0.35);
 }
 
+/* =========================================
+   DARK MODE GLOBAL TEXT FIX
+========================================= */
 
+.dark-mode {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode p,
+.dark-mode span,
+.dark-mode div {
+    color: #ffffff !important;
+}
+
+.dark-mode .event-card,
+.dark-mode .movie-card,
+.dark-mode .stream-card {
+    background-color: #1f1f1f !important;
+}
