@@ -208,15 +208,16 @@ body.dark-mode #moviesHeading {
    MOVIE CARD HOVER EFFECT
 ========================================= */
 
+/* FORCE HOVER EFFECT */
+
 .movie-card,
 .stream-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+    transition: transform 0.3s ease !important;
 }
 
 .movie-card:hover,
 .stream-card:hover {
-    transform: translateY(-8px) scale(1.04);
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.4);
+    transform: translateY(-10px) scale(1.05) !important;
 }
+
 
