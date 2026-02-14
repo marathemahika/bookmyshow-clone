@@ -221,3 +221,8 @@ body.dark-mode .filter-chip.active {
     background-color: var(--primary-red) !important;
     color: #ffffff !important;
 }
+
+/* TEST DARK MODE */
+body.dark-mode {
+    background: black !important;
+}
