@@ -30,7 +30,7 @@ if (themeBtn) {
         }
 
         // Change only cards — NOT header
-        const cards = document.querySelectorAll('.movie-card, .stream-card');
+        const cards = document.querySelectorAll('.movie-card, .stream-card, .event-card');
         cards.forEach(card => {
             card.style.backgroundColor = isDark ? "#ffffff" : "#1f1f1f";
         });
@@ -77,6 +77,7 @@ if (themeBtn) {
 
             const movieCards = document.querySelectorAll('.movie-card');
             const streamCards = document.querySelectorAll('.stream-card');
+            const eventsCards = document.querySelectorAll('.events-card');
             const allCards = [...movieCards, ...streamCards];
 
             let visibleCount = 0;
@@ -145,9 +146,6 @@ if (themeBtn) {
 
         setInterval(nextSlide, 4000);
     }
-
-
-    
 
 
     /* =========================================
