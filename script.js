@@ -1,10 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* -------------------------------
-       THEME TOGGLE (ALWAYS START LIGHT)
+       FORCE LIGHT MODE ON LOAD
     --------------------------------*/
     const themeBtn = document.getElementById('themeToggle');
     const body = document.body;
+
+    // Remove dark mode no matter what
+    body.classList.remove('dark-mode');
 
     function applyTheme(mode) {
         if (mode === 'dark') {
@@ -28,13 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (logoMy) logoMy.style.color = '#F84464';
     }
 
-    // ALWAYS start in Light Mode
+    // ALWAYS start light
     applyTheme('light');
 
     themeBtn.addEventListener('click', () => {
-        const currentMode = body.classList.contains('dark-mode') ? 'light' : 'dark';
-        applyTheme(currentMode);
+        const isDark = body.classList.contains('dark-mode');
+        applyTheme(isDark ? 'light' : 'dark');
     });
+
 
     /* -------------------------------
        SIGN IN BUTTON ALERT
@@ -45,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Welcome! Sign-in is currently under maintenance.');
         });
     }
+
 
     /* -------------------------------
        IMAGE SLIDER
