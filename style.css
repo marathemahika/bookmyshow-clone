@@ -7,18 +7,19 @@
     --sub-nav-bg: #2B3148;
     --bg-light: #f5f5f5;
     --bg-dark: #121212;
-    --text-gray: #666666;
 }
 
+/* Base Body */
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--bg-light);
-    color: #333;
+    color: #000000;
     margin: 0;
     overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* --- Shared Layout Components --- */
+/* --- Navigation --- */
 .nav-container {
     background-color: var(--nav-bg);
 }
@@ -27,6 +28,7 @@ body {
     background-color: var(--sub-nav-bg);
 }
 
+/* --- Search Input --- */
 .search-input {
     transition: all 0.3s ease;
     border: 1px solid transparent;
@@ -37,7 +39,7 @@ body {
     border-color: var(--primary-red);
 }
 
-/* --- Reusable UI Elements (Chips & Badges) --- */
+/* --- Filter Chips --- */
 .filter-chip {
     display: inline-block;
     padding: 4px 12px;
@@ -49,27 +51,22 @@ body {
     background: white;
 }
 
-.filter-chip.active, .filter-chip:hover {
+.filter-chip.active,
+.filter-chip:hover {
     border-color: var(--primary-red);
     color: var(--primary-red);
 }
 
-.badge-tag {
-    position: absolute;
-    padding: 2px 8px;
-    font-size: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 2px;
-}
-
-/* --- Page Specific: Movies (Vertical) --- */
+/* --- Movie Cards --- */
 .movie-card {
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
 }
 
 .movie-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-12px);
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.35);
 }
 
 .poster-wrapper {
@@ -80,16 +77,16 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* --- Page Specific: Stream (Dark Theme) --- */
-.stream-page {
-    background-color: var(--bg-dark) !important;
-    color: white;
-}
-
+/* --- Stream Cards --- */
 .stream-card {
     background: #1f1f1f;
     border-radius: 8px;
-    transition: ring 0.3s;
+    transition: 0.3s;
+}
+
+.stream-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.35);
 }
 
 .play-overlay {
@@ -105,7 +102,7 @@ body {
     opacity: 1;
 }
 
-/* --- Page Specific: Sports (Landscape) --- */
+/* --- Sports Cards --- */
 .sport-card {
     background: white;
     border-radius: 12px;
@@ -134,30 +131,12 @@ body {
     100% { opacity: 1; }
 }
 
-/* --- Page Specific: Activities (Square) --- */
+/* --- Activity Images --- */
 .activity-img-wrapper {
     aspect-ratio: 1/1;
 }
 
-.price-discount {
-    color: #999;
-    text-decoration: line-through;
-    font-size: 0.8em;
-    margin-left: 5px;
-}
-
-/* --- Responsive Helpers --- */
-@media (max-width: 768px) {
-    .search-input {
-        width: 100%;
-    }
-    
-    .sidebar {
-        display: none; /* Hide filters on mobile by default */
-    }
-}
-
-/* --- Footer Styling --- */
+/* --- Footer --- */
 footer {
     background-color: #313034;
     color: #999;
@@ -165,120 +144,53 @@ footer {
     text-align: center;
 }
 
-/* Default Light Mode Styles */
-body {
-    background: #ffffff;
-    color: #000000;
-    transition: background 0.3s, color 0.3s; /* Makes the switch smooth */
-}
+/* =========================================
+   CLEAN DARK MODE SYSTEM
+========================================= */
 
-/* 1. The Main Background */
+/* Main Background */
 body.dark-mode {
-    background: #121212 !important;
-    color: #ffffff !important;
-}
-
-/* 2. The White Boxes (Tags/Buttons) */
-body.dark-mode .bg-white {
-    background: #ffffff !important; /* Keep them white as seen in your image */
-}
-
-/* 3. The Fix: Text inside the white boxes must be dark */
-body.dark-mode .bg-white, 
-body.dark-mode .bg-white * {
-    color: #121212 !important; 
-}
-
-/* 4. The Card Borders (Optional) */
-/* In your image, the cards have a thin white stroke */
-body.dark-mode .card, body.dark-mode .container-box {
-    border: 1px solid #333;
-}
-
-/* Movies Heading Color Control */
-#moviesHeading {
-    color: #000000;   /* Black in Light Mode */
-}
-
-body.dark-mode #moviesHeading {
-    color: #ffffff;   /* White in Dark Mode */
-}
-
-/* =========================================
-   MOVIE CARD HOVER EFFECT
-========================================= */
-
-/* FORCE HOVER EFFECT */
-
-.movie-card,
-.stream-card {
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-}
-
-.movie-card:hover,
-.stream-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.35);
-}
-
-/* =========================================
-   DARK MODE GLOBAL TEXT FIX
-========================================= */
-
-.dark-mode {
     background-color: #121212 !important;
     color: #ffffff !important;
 }
 
-.dark-mode h1,
-.dark-mode h2,
-.dark-mode h3,
-.dark-mode h4,
-.dark-mode p,
-.dark-mode span,
-.dark-mode div {
-    color: #ffffff !important;
-}
-
-.dark-mode .event-card,
-.dark-mode .movie-card,
-.dark-mode .stream-card {
+/* Cards Dark */
+body.dark-mode .movie-card,
+body.dark-mode .stream-card,
+body.dark-mode .event-card {
     background-color: #1f1f1f !important;
 }
 
-/* =========================================
-   DARK MODE FIX – FILTER SECTION
-========================================= */
-
-/* Dark background */
-.dark-mode {
-    background-color: #121212 !important;
+/* Headings & Text inside main */
+body.dark-mode main h1,
+body.dark-mode main h2,
+body.dark-mode main h3,
+body.dark-mode main h4,
+body.dark-mode main p,
+body.dark-mode main span {
+    color: #ffffff !important;
 }
 
-/* Make filter boxes dark */
-.dark-mode aside .bg-white {
+/* Filter Section */
+body.dark-mode aside .bg-white {
     background-color: #1f1f1f !important;
     border-color: #333 !important;
 }
 
-/* Make filter headings white */
-.dark-mode aside h2,
-.dark-mode aside span,
-.dark-mode aside i {
+body.dark-mode aside h2,
+body.dark-mode aside span,
+body.dark-mode aside i {
     color: #ffffff !important;
 }
 
-/* Make filter chips dark */
-.dark-mode .filter-chip {
+/* Filter Chips */
+body.dark-mode .filter-chip {
     background-color: #2a2a2a !important;
     color: #ffffff !important;
     border-color: #444 !important;
 }
 
-/* Active chip */
-.dark-mode .filter-chip.active {
-    background-color: #F84464 !important;
+body.dark-mode .filter-chip.active {
+    background-color: var(--primary-red) !important;
     color: #ffffff !important;
 }

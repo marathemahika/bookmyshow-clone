@@ -3,49 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
 
     /* =========================================
-       CLEAN THEME TOGGLE (HEADER UNTOUCHED)
+       THEME TOGGLE (CLEAN VERSION)
     ========================================= */
 
     const themeBtn = document.getElementById('themeToggle');
 
     if (themeBtn) {
-
         themeBtn.addEventListener('click', () => {
 
-            const isDark = body.classList.contains('dark-mode');
+            body.classList.toggle('dark-mode');
 
-            if (isDark) {
-                // LIGHT MODE
-                body.classList.remove('dark-mode');
-                body.style.backgroundColor = "#f5f5f5";
-                body.style.color = "#000000";
-                themeBtn.textContent = "Dark Mode";
-            } else {
-                // DARK MODE
-                body.classList.add('dark-mode');
-                body.style.backgroundColor = "#121212";
-                body.style.color = "#ffffff";
+            if (body.classList.contains('dark-mode')) {
                 themeBtn.textContent = "Light Mode";
+            } else {
+                themeBtn.textContent = "Dark Mode";
             }
-
-            /* Update card backgrounds */
-            const cards = document.querySelectorAll('.movie-card, .stream-card, .event-card');
-            cards.forEach(card => {
-                card.style.backgroundColor = isDark ? "#ffffff" : "#1f1f1f";
-            });
-
-            /* FIX: Make ALL gray text visible in dark mode */
-const grayTexts = document.querySelectorAll('[class*="text-gray"]');
-
-grayTexts.forEach(el => {
-    if (isDark) {
-        // Switching to LIGHT → restore original
-        el.style.color = "";
-    } else {
-        // Switching to DARK → force white
-        el.style.color = "#ffffff";
-    }
-});
 
         });
     }
@@ -95,6 +67,7 @@ grayTexts.forEach(el => {
             let visibleCount = 0;
 
             allCards.forEach(card => {
+
                 const title = card.querySelector('h3, h4')?.textContent.toLowerCase();
 
                 if (title && title.includes(query)) {
@@ -199,5 +172,17 @@ grayTexts.forEach(el => {
             }
         });
     }
+
+    /* =========================================
+       FILTER CHIP TOGGLE
+    ========================================= */
+
+    const filterChips = document.querySelectorAll('.filter-chip');
+
+    filterChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            chip.classList.toggle('active');
+        });
+    });
 
 });
