@@ -3,39 +3,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
 
     /* =========================================
-       THEME TOGGLE (ONLY IF BUTTON EXISTS)
-    ========================================= */
-    const themeBtn = document.getElementById('themeToggle');
+   REAL THEME TOGGLE (ACTUALLY CHANGES UI)
+========================================= */
 
-    function applyTheme(mode) {
-        if (mode === 'dark') {
-            body.classList.add('dark-mode');
-            if (themeBtn) themeBtn.textContent = "Light Mode";
-        } else {
+const themeBtn = document.getElementById('themeToggle');
+
+if (themeBtn) {
+
+    themeBtn.addEventListener('click', () => {
+
+        const isDark = body.classList.contains('dark-mode');
+
+        if (isDark) {
+            // SWITCH TO LIGHT
             body.classList.remove('dark-mode');
-            if (themeBtn) themeBtn.textContent = "Dark Mode";
+            body.style.backgroundColor = "#f5f5f5";
+            body.style.color = "#000000";
+            themeBtn.textContent = "Dark Mode";
+
+        } else {
+            // SWITCH TO DARK
+            body.classList.add('dark-mode');
+            body.style.backgroundColor = "#121212";
+            body.style.color = "#ffffff";
+            themeBtn.textContent = "Light Mode";
         }
 
-        // Keep navbar text white
-        const navItems = document.querySelectorAll('nav a, nav button, nav i, nav h1');
-        navItems.forEach(item => {
-            if (item.tagName !== 'SPAN') {
-                item.style.color = "#ffffff";
-            }
+        // Navbar background adjust
+        const nav = document.querySelector('nav');
+        if (nav) {
+            nav.style.backgroundColor = isDark ? "#333545" : "#1a1a1a";
+        }
+
+        // All cards background adjustment
+        const cards = document.querySelectorAll('.movie-card, .stream-card');
+        cards.forEach(card => {
+            card.style.backgroundColor = isDark ? "#ffffff" : "#1f1f1f";
         });
 
-        const logoMy = document.querySelector('nav h1 span');
-        if (logoMy) logoMy.style.color = "#F84464";
-    }
+    });
 
-    if (themeBtn) {
-        applyTheme('light');
+}
 
-        themeBtn.addEventListener('click', () => {
-            const isDark = body.classList.contains('dark-mode');
-            applyTheme(isDark ? 'light' : 'dark');
-        });
-    }
 
 
     /* =========================================
