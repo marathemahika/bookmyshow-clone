@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
 
     /* =========================================
-   REAL THEME TOGGLE (ACTUALLY CHANGES UI)
+   CLEAN THEME TOGGLE (HEADER UNTOUCHED)
 ========================================= */
 
 const themeBtn = document.getElementById('themeToggle');
@@ -15,27 +15,21 @@ if (themeBtn) {
         const isDark = body.classList.contains('dark-mode');
 
         if (isDark) {
-            // SWITCH TO LIGHT
+            // LIGHT MODE
             body.classList.remove('dark-mode');
             body.style.backgroundColor = "#f5f5f5";
             body.style.color = "#000000";
             themeBtn.textContent = "Dark Mode";
 
         } else {
-            // SWITCH TO DARK
+            // DARK MODE
             body.classList.add('dark-mode');
             body.style.backgroundColor = "#121212";
             body.style.color = "#ffffff";
             themeBtn.textContent = "Light Mode";
         }
 
-        // Navbar background adjust
-        const nav = document.querySelector('nav');
-        if (nav) {
-            nav.style.backgroundColor = isDark ? "#333545" : "#1a1a1a";
-        }
-
-        // All cards background adjustment
+        // Change only cards — NOT header
         const cards = document.querySelectorAll('.movie-card, .stream-card');
         cards.forEach(card => {
             card.style.backgroundColor = isDark ? "#ffffff" : "#1f1f1f";
