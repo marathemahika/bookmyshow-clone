@@ -9,25 +9,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeBtn = document.getElementById('themeToggle');
 
     if (themeBtn) {
+
         themeBtn.addEventListener('click', () => {
 
             const isDark = body.classList.contains('dark-mode');
 
             if (isDark) {
+                // LIGHT MODE
                 body.classList.remove('dark-mode');
                 body.style.backgroundColor = "#f5f5f5";
                 body.style.color = "#000000";
                 themeBtn.textContent = "Dark Mode";
             } else {
+                // DARK MODE
                 body.classList.add('dark-mode');
                 body.style.backgroundColor = "#121212";
                 body.style.color = "#ffffff";
                 themeBtn.textContent = "Light Mode";
             }
 
+            /* Update card backgrounds */
             const cards = document.querySelectorAll('.movie-card, .stream-card, .event-card');
             cards.forEach(card => {
                 card.style.backgroundColor = isDark ? "#ffffff" : "#1f1f1f";
+            });
+
+            /* FIX: Event card text visibility */
+            const eventTexts = document.querySelectorAll('.event-card h3, .event-card p, .event-card span');
+
+            eventTexts.forEach(text => {
+                if (isDark) {
+                    // switching to light
+                    text.style.color = "";
+                } else {
+                    // switching to dark
+                    text.style.color = "#ffffff";
+                }
             });
 
         });
