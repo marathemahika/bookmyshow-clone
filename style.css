@@ -191,3 +191,13 @@ body.dark-mode .event-card {
     background-color: #1f1f1f !important;
 }
 
+/* Make ALL gray text white in dark mode */
+
+body.dark-mode .text-gray-800,
+body.dark-mode .text-gray-700,
+body.dark-mode .text-gray-600,
+body.dark-mode .text-gray-500,
+body.dark-mode .text-gray-400 {
+    color: #ffffff !important;
+}
+

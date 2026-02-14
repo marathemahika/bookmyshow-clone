@@ -185,4 +185,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    /* =========================================
+   IMAGE SLIDER (INDEX PAGE)
+========================================= */
+
+const sliderSection = document.querySelector('.hero-slider');
+
+if (sliderSection) {
+
+    const sliderImage = sliderSection.querySelector('img');
+    const leftArrow = sliderSection.querySelector('.fa-chevron-left');
+    const rightArrow = sliderSection.querySelector('.fa-chevron-right');
+
+    const images = [
+        "https://live.staticflickr.com/4005/4686746190_8c001e3486_h.jpg",
+        "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070",
+        "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2070"
+    ];
+
+    let index = 0;
+
+    function updateImage() {
+        sliderImage.src = images[index];
+    }
+
+    function nextSlide() {
+        index = (index + 1) % images.length;
+        updateImage();
+    }
+
+    function prevSlide() {
+        index = (index - 1 + images.length) % images.length;
+        updateImage();
+    }
+
+    if (rightArrow) rightArrow.parentElement.addEventListener("click", nextSlide);
+    if (leftArrow) leftArrow.parentElement.addEventListener("click", prevSlide);
+
+    setInterval(nextSlide, 4000);
+}
+
+
 });
