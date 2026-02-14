@@ -34,18 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.style.backgroundColor = isDark ? "#ffffff" : "#1f1f1f";
             });
 
-            /* FIX: Event card text visibility */
-            const eventTexts = document.querySelectorAll('.event-card h3, .event-card p, .event-card span');
+            /* FIX: Make ALL gray text visible in dark mode */
+const grayTexts = document.querySelectorAll('[class*="text-gray"]');
 
-            eventTexts.forEach(text => {
-                if (isDark) {
-                    // switching to light
-                    text.style.color = "";
-                } else {
-                    // switching to dark
-                    text.style.color = "#ffffff";
-                }
-            });
+grayTexts.forEach(el => {
+    if (isDark) {
+        // Switching to LIGHT → restore original
+        el.style.color = "";
+    } else {
+        // Switching to DARK → force white
+        el.style.color = "#ffffff";
+    }
+});
 
         });
     }
