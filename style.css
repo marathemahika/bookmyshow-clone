@@ -9,7 +9,10 @@
     --bg-dark: #121212;
 }
 
-/* Base Body */
+/* ================================
+   BASE BODY
+================================ */
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--bg-light);
@@ -19,7 +22,10 @@ body {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* --- Navigation --- */
+/* ================================
+   NAVIGATION
+================================ */
+
 .nav-container {
     background-color: var(--nav-bg);
 }
@@ -28,7 +34,10 @@ body {
     background-color: var(--sub-nav-bg);
 }
 
-/* --- Search Input --- */
+/* ================================
+   SEARCH INPUT
+================================ */
+
 .search-input {
     transition: all 0.3s ease;
     border: 1px solid transparent;
@@ -39,7 +48,10 @@ body {
     border-color: var(--primary-red);
 }
 
-/* --- Filter Chips --- */
+/* ================================
+   FILTER CHIPS
+================================ */
+
 .filter-chip {
     display: inline-block;
     padding: 4px 12px;
@@ -57,7 +69,10 @@ body {
     color: var(--primary-red);
 }
 
-/* --- Movie Cards --- */
+/* ================================
+   MOVIE CARDS
+================================ */
+
 .movie-card {
     transition: all 0.3s ease;
     cursor: pointer;
@@ -77,11 +92,14 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* --- Stream Cards --- */
+/* ================================
+   STREAM CARDS
+================================ */
+
 .stream-card {
     background: #1f1f1f;
     border-radius: 8px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 .stream-card:hover {
@@ -102,7 +120,10 @@ body {
     opacity: 1;
 }
 
-/* --- Sports Cards --- */
+/* ================================
+   SPORTS CARDS
+================================ */
+
 .sport-card {
     background: white;
     border-radius: 12px;
@@ -131,12 +152,18 @@ body {
     100% { opacity: 1; }
 }
 
-/* --- Activity Images --- */
+/* ================================
+   ACTIVITIES
+================================ */
+
 .activity-img-wrapper {
     aspect-ratio: 1/1;
 }
 
-/* --- Footer --- */
+/* ================================
+   FOOTER
+================================ */
+
 footer {
     background-color: #313034;
     color: #999;
@@ -150,36 +177,36 @@ footer {
 
 /* Main Background */
 body.dark-mode {
-    background-color: #121212 !important;
-    color: #ffffff !important;
+    background-color: var(--bg-dark);
+    color: #ffffff;
 }
 
-/* Cards Dark */
+/* Main Content */
+body.dark-mode main {
+    background-color: var(--bg-dark);
+}
+
+/* Cards */
 body.dark-mode .movie-card,
 body.dark-mode .stream-card,
-body.dark-mode .event-card {
+body.dark-mode .event-card,
+body.dark-mode .sport-card {
     background-color: #1f1f1f !important;
 }
 
-/* Headings & Text inside main */
+/* Filter Boxes */
+body.dark-mode aside > div {
+    background-color: #1f1f1f !important;
+    border-color: #333 !important;
+}
+
+/* Main Text */
 body.dark-mode main h1,
 body.dark-mode main h2,
 body.dark-mode main h3,
 body.dark-mode main h4,
 body.dark-mode main p,
 body.dark-mode main span {
-    color: #ffffff !important;
-}
-
-/* Filter Section */
-body.dark-mode aside .bg-white {
-    background-color: #1f1f1f !important;
-    border-color: #333 !important;
-}
-
-body.dark-mode aside h2,
-body.dark-mode aside span,
-body.dark-mode aside i {
     color: #ffffff !important;
 }
 
