@@ -203,3 +203,18 @@ body.dark-mode .card, body.dark-mode .container-box {
 body.dark-mode #moviesHeading {
     color: #ffffff;   /* White in Dark Mode */
 }
+
+/* =========================================
+   MOVIE CARD HOVER EFFECT
+========================================= */
+
+.movie-card,
+.stream-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover,
+.stream-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
