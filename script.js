@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* -------------------------------
-       THEME TOGGLE + LOCAL STORAGE
+       THEME TOGGLE (ALWAYS START LIGHT)
     --------------------------------*/
     const themeBtn = document.getElementById('themeToggle');
     const body = document.body;
@@ -10,14 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mode === 'dark') {
             body.classList.add('dark-mode');
             themeBtn.textContent = 'Light Mode';
-            localStorage.setItem('theme', 'dark');
         } else {
             body.classList.remove('dark-mode');
             themeBtn.textContent = 'Dark Mode';
-            localStorage.setItem('theme', 'light');
         }
 
-        // Keep navbar text white always
+        // Keep navbar text white
         const navItems = document.querySelectorAll('nav a, nav button, nav i, nav h1');
         navItems.forEach(item => {
             if (item.tagName !== 'SPAN') {
@@ -25,15 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Keep "my" in logo red always
+        // Keep "my" in logo red
         const logoMy = document.querySelector('nav h1 span');
         if (logoMy) logoMy.style.color = '#F84464';
     }
 
-    // Load saved theme
+    // ALWAYS start in Light Mode
     applyTheme('light');
-
-    applyTheme(savedTheme);
 
     themeBtn.addEventListener('click', () => {
         const currentMode = body.classList.contains('dark-mode') ? 'light' : 'dark';
