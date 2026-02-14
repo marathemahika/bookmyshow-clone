@@ -210,14 +210,10 @@ body.dark-mode #moviesHeading {
 
 /* FORCE HOVER EFFECT */
 
-.movie-card,
-.stream-card {
-    transition: transform 0.3s ease !important;
-}
-
 .movie-card:hover,
 .stream-card:hover {
     transform: translateY(-10px) scale(1.05) !important;
+    z-index: 10;
 }
 
 
