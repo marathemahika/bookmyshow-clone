@@ -175,54 +175,18 @@ footer {
    CLEAN DARK MODE SYSTEM
 ========================================= */
 
-/* Main Background */
 body.dark-mode {
-    background-color: var(--bg-dark);
-    color: #ffffff;
+    background-color: #121212 !important;
+    color: white !important;
 }
 
-/* Main Content */
 body.dark-mode main {
-    background-color: var(--bg-dark);
+    background-color: #121212 !important;
 }
 
-/* Cards */
+body.dark-mode aside > div,
 body.dark-mode .movie-card,
 body.dark-mode .stream-card,
-body.dark-mode .event-card,
-body.dark-mode .sport-card {
+body.dark-mode .event-card {
     background-color: #1f1f1f !important;
-}
-
-/* Filter Boxes */
-body.dark-mode aside > div {
-    background-color: #1f1f1f !important;
-    border-color: #333 !important;
-}
-
-/* Main Text */
-body.dark-mode main h1,
-body.dark-mode main h2,
-body.dark-mode main h3,
-body.dark-mode main h4,
-body.dark-mode main p,
-body.dark-mode main span {
-    color: #ffffff !important;
-}
-
-/* Filter Chips */
-body.dark-mode .filter-chip {
-    background-color: #2a2a2a !important;
-    color: #ffffff !important;
-    border-color: #444 !important;
-}
-
-body.dark-mode .filter-chip.active {
-    background-color: var(--primary-red) !important;
-    color: #ffffff !important;
-}
-
-/* TEST DARK MODE */
-body.dark-mode {
-    background: black !important;
 }
