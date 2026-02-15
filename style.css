@@ -205,6 +205,16 @@ body.dark-mode .text-gray-400 {
    DARK MODE – FILTER SECTION FIX
 ========================================= */
 
+body.dark-mode main h1,
+body.dark-mode main h2,
+body.dark-mode main h3,
+body.dark-mode main h4,
+body.dark-mode main p,
+body.dark-mode main span,
+body.dark-mode main small {
+    color: #ffffff !important;
+}
+
 /* Filter container boxes */
 body.dark-mode aside > div {
     background-color: #1f1f1f !important;
