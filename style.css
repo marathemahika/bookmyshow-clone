@@ -201,3 +201,33 @@ body.dark-mode .text-gray-400 {
     color: #ffffff !important;
 }
 
+/* =========================================
+   DARK MODE – FILTER SECTION FIX
+========================================= */
+
+/* Filter container boxes */
+body.dark-mode aside > div {
+    background-color: #1f1f1f !important;
+    border: 1px solid #333 !important;
+}
+
+/* Filter headings */
+body.dark-mode aside h2,
+body.dark-mode aside .font-bold,
+body.dark-mode aside span {
+    color: #ffffff !important;
+}
+
+/* Filter chips */
+body.dark-mode .filter-chip {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border: 1px solid #444 !important;
+}
+
+/* Active chip */
+body.dark-mode .filter-chip.active {
+    background-color: #F84464 !important;
+    color: #ffffff !important;
+    border-color: #F84464 !important;
+}
