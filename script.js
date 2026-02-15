@@ -61,8 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const movieCards = document.querySelectorAll('.movie-card');
             const streamCards = document.querySelectorAll('.stream-card');
             const eventCards = document.querySelectorAll('.event-card');
+            const playsCards = document.querySelectorAll('.plays-card');
+            const sportsCards = document.querySelectorAll('.sports-card');
+            const activitiesCards = document.querySelectorAll('.activities-card');
+            
 
-            const allCards = [...movieCards, ...streamCards, ...eventCards];
+            const allCards = [...movieCards, ...streamCards, ...eventCards, ...playsCards, ...sportsCards, ...activitiesCards];
 
             let visibleCount = 0;
 
@@ -98,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
        UNIVERSAL INFO MODAL
     ========================================= */
 
-    const cards = document.querySelectorAll('.movie-card, .stream-card, .event-card');
+    const cards = document.querySelectorAll('.movie-card, .stream-card, .event-card, .plays-card, .sports-card, .activities-card');
 
     if (cards.length > 0) {
 

@@ -187,7 +187,10 @@ body.dark-mode main {
 body.dark-mode aside > div,
 body.dark-mode .movie-card,
 body.dark-mode .stream-card,
-body.dark-mode .event-card {
+body.dark-mode .event-card
+body .dark-mode .plays-card,
+body .dark-mode .sports-card
+body.dark-mode .activities-card {
     background-color: #1f1f1f !important;
 }
 
