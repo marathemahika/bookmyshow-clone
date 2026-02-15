@@ -158,6 +158,17 @@ body {
     object-fit: cover;
 }
 
+body.dark-mode .sport-card {
+    background-color: #1f1f1f !important;
+}
+
+body.dark-mode .sport-card h3,
+body.dark-mode .sport-card p,
+body.dark-mode .sport-card span {
+    color: #ffffff !important;
+}
+
+
 /* ================================
    ACTIVITIES
 ================================ */
