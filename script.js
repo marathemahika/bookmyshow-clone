@@ -3,22 +3,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
 
     /* =========================================
-       THEME TOGGLE
-    ========================================= */
+   THEME PERSISTENCE (ALL PAGES)
+========================================= */
 
-    const themeBtn = document.getElementById('themeToggle');
+const themeBtn = document.getElementById('themeToggle');
 
-    if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
+// Apply saved theme on page load
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    if (themeBtn) themeBtn.textContent = "Light Mode";
+} else {
+    document.body.classList.remove("dark-mode");
+    if (themeBtn) themeBtn.textContent = "Dark Mode";
+}
 
-            body.classList.toggle('dark-mode');
+// Toggle theme and save preference
+if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
 
-            themeBtn.textContent =
-                body.classList.contains('dark-mode')
-                    ? "Light Mode"
-                    : "Dark Mode";
-        });
-    }
+        document.body.classList.toggle("dark-mode");
+
+        const isDark = document.body.classList.contains("dark-mode");
+
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+
+        themeBtn.textContent = isDark ? "Light Mode" : "Dark Mode";
+    });
+}
+
 
     /* =========================================
        SIGN IN BUTTON ALERT
