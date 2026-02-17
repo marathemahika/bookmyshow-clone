@@ -231,9 +231,9 @@ if (themeBtn) {
         const rightArrow = sliderSection.querySelector('.fa-chevron-right');
 
         const images = [
-            "https://live.staticflickr.com/4005/4686746190_8c001e3486_h.jpg",
-            "https://static.toiimg.com/thumb/msid-128090869,width-1280,height-720,imgsize-41464,resizemode-6,overlay-toi_sw,pt-32,y_pad-600/photo.jpg",
-            "https://assets-in.bmscdn.com/discovery-catalog/events/et00452447-yjcwpvypmm-landscape.jpg"
+            "https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1771328989707_popdesktop.jpg",
+            "https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1770705246497_webbanner.jpg",
+            "https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1747203617158_snowkingdommumdesktop.jpg"
         ];
 
         let index = 0;
