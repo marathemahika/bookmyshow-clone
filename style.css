@@ -284,12 +284,9 @@ body.dark-mode .bg-white.border-b {
 
 /* Fix filter pills inside it */
 body.dark-mode .filter-pill {
-    background-color: #2a2a2a !important;
     color: #ffffff !important;
-    border-color: #444 !important;
 }
 
 body.dark-mode .filter-pill.active {
-    background-color: #F84464 !important;
-    color: #ffffff !important;
+    color: #F84464 !important;
 }
