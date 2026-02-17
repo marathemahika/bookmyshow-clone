@@ -2,42 +2,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const body = document.body;
 
-    /* =========================================
-   THEME PERSISTENCE (DEFAULT LIGHT)
+   /* =========================================
+   THEME TOGGLE WITH PERSISTENCE
 ========================================= */
 
 const themeBtn = document.getElementById('themeToggle');
 
-// Always start in LIGHT if nothing is saved
-let savedTheme = localStorage.getItem("theme");
+// ALWAYS start in light mode
+body.classList.remove('dark-mode');
+localStorage.setItem('theme', 'light');
 
-if (!savedTheme) {
-    localStorage.setItem("theme", "light");
-    savedTheme = "light";
-}
-
-// Apply saved theme
-if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    if (themeBtn) themeBtn.textContent = "Light Mode";
-} else {
-    document.body.classList.remove("dark-mode");
-    if (themeBtn) themeBtn.textContent = "Dark Mode";
-}
-
-// Toggle theme + save preference
 if (themeBtn) {
-    themeBtn.addEventListener("click", () => {
 
-        document.body.classList.toggle("dark-mode");
+    themeBtn.textContent = "Dark Mode";
 
-        const isDark = document.body.classList.contains("dark-mode");
+    themeBtn.addEventListener('click', () => {
 
-        localStorage.setItem("theme", isDark ? "dark" : "light");
+        body.classList.toggle('dark-mode');
 
-        themeBtn.textContent = isDark ? "Light Mode" : "Dark Mode";
+        if (body.classList.contains('dark-mode')) {
+            themeBtn.textContent = "Light Mode";
+            localStorage.setItem('theme', 'dark');
+        } else {
+            themeBtn.textContent = "Dark Mode";
+            localStorage.setItem('theme', 'light');
+        }
+
     });
 }
+
 
 
     /* =========================================
