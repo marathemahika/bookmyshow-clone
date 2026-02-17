@@ -231,7 +231,7 @@ if (themeBtn) {
         const rightArrow = sliderSection.querySelector('.fa-chevron-right');
 
         const images = [
-            "https://live.staticflickr.com/4005/4686746190_8c001e3486_h.jpg",
+            "https://m.media-amazon.com/images/I/71W6Yi0j5VL._AC_UF894,1000_QL80_.jpg",
             "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070",
             "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2070"
         ];
