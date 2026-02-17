@@ -3,13 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
 
     /* =========================================
-   THEME PERSISTENCE (ALL PAGES)
+   THEME PERSISTENCE (DEFAULT LIGHT)
 ========================================= */
 
 const themeBtn = document.getElementById('themeToggle');
 
-// Apply saved theme on page load
-if (localStorage.getItem("theme") === "dark") {
+// Always start in LIGHT if nothing is saved
+let savedTheme = localStorage.getItem("theme");
+
+if (!savedTheme) {
+    localStorage.setItem("theme", "light");
+    savedTheme = "light";
+}
+
+// Apply saved theme
+if (savedTheme === "dark") {
     document.body.classList.add("dark-mode");
     if (themeBtn) themeBtn.textContent = "Light Mode";
 } else {
@@ -17,7 +25,7 @@ if (localStorage.getItem("theme") === "dark") {
     if (themeBtn) themeBtn.textContent = "Dark Mode";
 }
 
-// Toggle theme and save preference
+// Toggle theme + save preference
 if (themeBtn) {
     themeBtn.addEventListener("click", () => {
 
