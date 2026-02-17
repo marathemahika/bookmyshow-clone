@@ -232,8 +232,8 @@ if (themeBtn) {
 
         const images = [
             "https://live.staticflickr.com/4005/4686746190_8c001e3486_h.jpg",
-            "https://m.media-amazon.com/images/I/71W6Yi0j5VL._AC_UF894,1000_QL80_.jpg",
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH0s6U0bHi_9LG_32fJQ7UjN6wIn5M4klT3A&s"
+            "https://static.toiimg.com/thumb/msid-126639497,imgsize-61802,width-400,resizemode-4/mrdni.jpg",
+            "https://assets-in.bmscdn.com/discovery-catalog/events/et00452447-yjcwpvypmm-landscape.jpg"
         ];
 
         let index = 0;
