@@ -306,6 +306,12 @@ body.dark-mode select.bg-gray-50 option {
     color: #ffffff;
 }
 
-body.dark-mode .hero-slider {
-    background-color: #1a1a1a !important;
+/* =========================================
+   DARK MODE – SLIDER OUTER BACKGROUND
+========================================= */
+
+body.dark-mode .hero-slider,
+body.dark-mode .hero-slider > div {
+    background-color: #121212 !important;
 }
+
