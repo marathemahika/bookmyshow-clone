@@ -232,7 +232,7 @@ if (themeBtn) {
 
         const images = [
             "https://live.staticflickr.com/4005/4686746190_8c001e3486_h.jpg",
-            "https://static.toiimg.com/thumb/msid-126639497,imgsize-61802,width-400,resizemode-4/mrdni.jpg",
+            "https://static.toiimg.com/thumb/msid-128090869,width-1280,height-720,imgsize-41464,resizemode-6,overlay-toi_sw,pt-32,y_pad-600/photo.jpg",
             "https://assets-in.bmscdn.com/discovery-catalog/events/et00452447-yjcwpvypmm-landscape.jpg"
         ];
 
