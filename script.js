@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
 
     /* =========================================
-       THEME TOGGLE (CLEAN VERSION)
+       THEME TOGGLE
     ========================================= */
 
     const themeBtn = document.getElementById('themeToggle');
@@ -13,12 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             body.classList.toggle('dark-mode');
 
-            if (body.classList.contains('dark-mode')) {
-                themeBtn.textContent = "Light Mode";
-            } else {
-                themeBtn.textContent = "Dark Mode";
-            }
-
+            themeBtn.textContent =
+                body.classList.contains('dark-mode')
+                    ? "Light Mode"
+                    : "Dark Mode";
         });
     }
 
@@ -61,12 +59,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const movieCards = document.querySelectorAll('.movie-card');
             const streamCards = document.querySelectorAll('.stream-card');
             const eventCards = document.querySelectorAll('.event-card');
-            const playsCards = document.querySelectorAll('.plays-card');
-            const sportsCards = document.querySelectorAll('.sports-card');
-            const activitiesCards = document.querySelectorAll('.activities-card');
-            
+            const playCards = document.querySelectorAll('.play-card');
+            const sportCards = document.querySelectorAll('.sport-card');
+            const activityCards = document.querySelectorAll('.activity-card');
 
-            const allCards = [...movieCards, ...streamCards, ...eventCards, ...playsCards, ...sportsCards, ...activitiesCards];
+            const allCards = [
+                ...movieCards,
+                ...streamCards,
+                ...eventCards,
+                ...playCards,
+                ...sportCards,
+                ...activityCards
+            ];
 
             let visibleCount = 0;
 
@@ -102,7 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
        UNIVERSAL INFO MODAL
     ========================================= */
 
-    const cards = document.querySelectorAll('.movie-card, .stream-card, .event-card, .plays-card, .sports-card, .activities-card');
+    const cards = document.querySelectorAll(
+        '.movie-card, .stream-card, .event-card, .play-card, .sport-card, .activity-card'
+    );
 
     if (cards.length > 0) {
 
@@ -159,8 +165,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     combinedInfo += p.textContent + " ";
                 });
 
-                modalTitle.textContent = titleElement ? titleElement.textContent : "Details";
-                modalInfo.textContent = combinedInfo || "Details unavailable.";
+                modalTitle.textContent =
+                    titleElement ? titleElement.textContent : "Details";
+
+                modalInfo.textContent =
+                    combinedInfo || "Details unavailable.";
 
                 modal.style.display = "flex";
             });
@@ -190,44 +199,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* =========================================
-   IMAGE SLIDER (INDEX PAGE)
-========================================= */
+       IMAGE SLIDER (INDEX PAGE ONLY)
+    ========================================= */
 
-const sliderSection = document.querySelector('.hero-slider');
+    const sliderSection = document.querySelector('.hero-slider');
 
-if (sliderSection) {
+    if (sliderSection) {
 
-    const sliderImage = sliderSection.querySelector('img');
-    const leftArrow = sliderSection.querySelector('.fa-chevron-left');
-    const rightArrow = sliderSection.querySelector('.fa-chevron-right');
+        const sliderImage = sliderSection.querySelector('img');
+        const leftArrow = sliderSection.querySelector('.fa-chevron-left');
+        const rightArrow = sliderSection.querySelector('.fa-chevron-right');
 
-    const images = [
-        "https://live.staticflickr.com/4005/4686746190_8c001e3486_h.jpg",
-        "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070",
-        "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2070"
-    ];
+        const images = [
+            "https://live.staticflickr.com/4005/4686746190_8c001e3486_h.jpg",
+            "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070",
+            "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2070"
+        ];
 
-    let index = 0;
+        let index = 0;
 
-    function updateImage() {
-        sliderImage.src = images[index];
+        function updateImage() {
+            sliderImage.src = images[index];
+        }
+
+        function nextSlide() {
+            index = (index + 1) % images.length;
+            updateImage();
+        }
+
+        function prevSlide() {
+            index = (index - 1 + images.length) % images.length;
+            updateImage();
+        }
+
+        if (rightArrow) rightArrow.parentElement.addEventListener("click", nextSlide);
+        if (leftArrow) leftArrow.parentElement.addEventListener("click", prevSlide);
+
+        setInterval(nextSlide, 4000);
     }
-
-    function nextSlide() {
-        index = (index + 1) % images.length;
-        updateImage();
-    }
-
-    function prevSlide() {
-        index = (index - 1 + images.length) % images.length;
-        updateImage();
-    }
-
-    if (rightArrow) rightArrow.parentElement.addEventListener("click", nextSlide);
-    if (leftArrow) leftArrow.parentElement.addEventListener("click", prevSlide);
-
-    setInterval(nextSlide, 4000);
-}
-
 
 });
