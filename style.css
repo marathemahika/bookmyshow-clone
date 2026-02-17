@@ -284,7 +284,7 @@ body.dark-mode .bg-white.border-b {
 
 /* Fix filter pills inside it */
 body.dark-mode .filter-pill {
-    color: #000000 !important;
+    color: #ffffff !important;
 }
 
 body.dark-mode .filter-pill.active {
